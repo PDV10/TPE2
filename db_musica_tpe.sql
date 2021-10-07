@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2021 a las 20:41:44
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Tiempo de generación: 07-10-2021 a las 22:41:15
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -71,6 +71,26 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 (4, 'el rap es esto', 'duo kie', 'barroco', '2009-11-21', 6),
 (5, 'galang', 'alika', 'educate yourself', '2008-12-05', 4);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `contraseña` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contraseña`) VALUES
+(2, 'admin', '$2a$12$E/XOxZiDcvenz3l5Ycu34.PwDJmxuY2RnR/r1111V3Z1f3D0bBJBC'),
+(5, 'pato', '$2a$12$F6DBmCrk7MWWPpt3MVVYK.poJ2ZwkLwqbScwOxlydy0VGnz5jlxIK');
+
 --
 -- Índices para tablas volcadas
 --
@@ -89,6 +109,12 @@ ALTER TABLE `musica`
   ADD KEY `id_genero` (`id_genero_fk`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -103,6 +129,12 @@ ALTER TABLE `generos`
 --
 ALTER TABLE `musica`
   MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
