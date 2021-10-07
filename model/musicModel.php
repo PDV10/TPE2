@@ -1,5 +1,5 @@
 <?php
-    class model{
+    class musicModel{
         private $db;
 
         function __construct(){

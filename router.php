@@ -1,5 +1,6 @@
 <?php
-    require_once('construct/movieController.php');
+    require_once('construct/musicController.php');
+    require_once('construct/userController.php');
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -12,7 +13,7 @@
     $params = explode("/", $action);
 
     $controller = new Controller();
-
+    $userController = new userController();
 
     switch ($params[0]) {
         case 'home':
@@ -22,5 +23,5 @@
             $controller->showGenreMusic($params[1]);   
             break;
         case 'login':
-            $controller->login(); 
+            $userController->login(); 
     }

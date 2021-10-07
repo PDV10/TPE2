@@ -18,4 +18,9 @@ class view{
         $this->smarty->assign("musicForGenre", $musicForGenre);
         $this->smarty->display("templates/showTable.tpl");
     }
+
+    function showLogin($msg){
+        $this->smarty->assign("msg", $msg);
+        $this->smarty->display("templates/showError.tpl");
+    }
 }

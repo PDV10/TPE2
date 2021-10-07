@@ -1,5 +1,5 @@
 <?php
-    require_once('model/model.php');
+    require_once('model/musicModel.php');
     require_once('view/view.php');
 
     class Controller{
@@ -8,7 +8,7 @@
 
         function __construct(){
             $this->view = new view();
-            $this->model = new model();
+            $this->model = new musicModel();
         }
 
         function showView(){
@@ -23,6 +23,7 @@
         }
 
         function login(){
-            $usuario = $_REQUEST
+            $usuario = $_REQUEST(["usuario"]);
+            $contraseña = $_REQUEST(["contraseña"]);
         }
     }
