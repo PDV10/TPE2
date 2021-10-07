@@ -1,5 +1,11 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
+<div class="container-fluid justify-content-center w-25">
+    <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <a class="btn btn btn-outline-secondary" href="#" >Buscar</a>
+    </form>
+</div>
 <div class="container mt-4" id="global">
     <table class="table table-dark table-striped text-center">
         <thead>
