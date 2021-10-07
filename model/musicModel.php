@@ -22,4 +22,14 @@
             $query->execute([$genre]);
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
+        function delete($id){
+            $query = $this->db->prepare(
+                'DELETE m.*
+                FROM musica m
+                INNER JOIN generos g
+                WHERE m.id_musica = ?');
+                 $query->execute([$id]);
+                 return $query->fetch(PDO::FETCH_OBJ);
+        }
+
     }    
