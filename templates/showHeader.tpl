@@ -11,6 +11,6 @@
             <body>
             <div class="contenedor">
                 <h1 class="titulo">TPE 2</h1>
-                <a href="#" class="btn login">login</a>
+                <button class="btn login">login</button>
             </div>
             

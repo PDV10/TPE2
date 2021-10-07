@@ -78,3 +78,21 @@ body{
 .corazon:hover{
     font-size: 26px;
 }
+
+#global {
+    padding: 0;
+	height: 500px;
+	width: 80%;
+	overflow-y: scroll;
+}
+#global::-webkit-scrollbar {
+    width: 10px;               
+  }
+#global::-webkit-scrollbar-track {
+    background: #1E1D21;       
+}
+#global::-webkit-scrollbar-thumb {
+    background-color: #3D3D41;    
+    border-radius: 20px;       
+    border: 3px solid #1E1D21;  
+}
