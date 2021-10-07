@@ -11,6 +11,6 @@
             <body>
             <div class="contenedor">
                 <h1 class="titulo">TPE 2</h1>
-                <button class="btn login">login</button>
+                <button class="btn btn-secondary">login</button>
             </div>
             
