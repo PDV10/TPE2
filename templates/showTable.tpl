@@ -1,0 +1,28 @@
+{include file="templates/showHeader.tpl"}
+{include file="templates/showNav.tpl"}
+<div class="container">
+    <table class="table table-dark table-striped mt-5 text-center">
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>artista</th>
+                <th>album</th>
+                <th>año</th>
+                <th>acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                {foreach from=$musicForGenre item=$music}
+                    <tr class="fila">
+                        <td class="table-dark ">{$music->nombreCancion}</td>
+                        <td class="table-dark ">{$music->artista}</td>
+                        <td class="table-dark ">{$music->album}</td>
+                        <td class="table-dark ">{$music->anio}</td>
+                        <td class="table-dark w-25 ps-3"><a href="addFav/{$music->id}" class="me-2 corazon">💜</a><a href="eliminar/{$music->id}" class="btn bg-danger me-2">X</a><a href="modificar/{$music->id}" class="btn bg-warning">modificar</a></td>
+                    </tr>
+                {/foreach}  
+            
+        </tbody>
+    </table>
+</div>
+{include file="templates/showFooter.tpl"}
