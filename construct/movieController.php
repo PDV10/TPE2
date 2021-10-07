@@ -21,4 +21,8 @@
             $musicForGenre = $this->model->musicForGenre($genre);
             $this->view->showTable($musicForGenre,$genres);
         }
+
+        function login(){
+            $usuario = $_REQUEST
+        }
     }

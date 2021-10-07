@@ -19,5 +19,8 @@
             $controller->showView();
             break; 
         case 'categories':
-            $controller->showGenreMusic($params[1]);           
+            $controller->showGenreMusic($params[1]);   
+            break;
+        case 'login':
+            $controller->login(); 
     }
