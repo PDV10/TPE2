@@ -42,14 +42,14 @@
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
 
-        function updateMusic($nombre,$artista,$album,$anio,$genre,$id){
+        function updateMusic($nombre,$artista,$album,$anio,/* $genre, */$id){
             $query = $this->db->prepare(
            'UPDATE m
             FROM musica m
             INNER JOIN generos g 
             SET nombreCancion = ?, artista = ?, album = ?, anio = ?, 
             WHERE m.id_musica = ?');
-            $query->execute([$nombre,$artista,$album,$anio,$genre,$id]);
+            $query->execute([$nombre,$artista,$album,$anio,/* $genre, */$id]);
         }
 
     }    

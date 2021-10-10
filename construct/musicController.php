@@ -53,14 +53,14 @@
         }
 
         function updateMusic(){
-            $nombre = $_REQUEST("nombre");
-            $artista = $_REQUEST("artista");
-            $album = $_REQUEST("album");
-            $anio = $_REQUEST("anio");
-            $genre = $_REQUEST("genre");
-            $id = $_REQUEST("id");
+            $nombre = $_REQUEST['nombre'];
+            $artista = $_REQUEST['artista'];
+            $album = $_REQUEST['album'];
+            $anio = $_REQUEST['anio'];
+            /* $genre = $_REQUEST['genre']; */
+            $id = $_REQUEST['id'];
             
-            $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$id);
+            $this->model->updateMusic($nombre,$artista,$album,$anio/* ,$genre */,$id);
         }
 
         function getAllGenre(){
