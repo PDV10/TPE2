@@ -12,16 +12,19 @@
 
     $params = explode("/", $action);
 
-    $controller = new Controller();
+    $musicController = new musicController();
     $userController = new userController();
 
     switch ($params[0]) {
         case 'home':
-            $controller->showView();
+            $musicController->showView();
             break; 
         case 'categories':
-            $controller->showGenreMusic($params[1]);   
+            $musicController->showGenreMusic($params[1]);   
             break;
         case 'login':
-            $userController->login(); 
+            $userController->login();
+            break;
+        case 'delete':
+            $musicController->delete($params[1]);
     }

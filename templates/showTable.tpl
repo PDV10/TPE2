@@ -24,9 +24,9 @@
                         <td class="table-dark ">{$music->artista}</td>
                         <td class="table-dark ">{$music->album}</td>
                         <td class="table-dark ">{$music->anio}</td>
-                        <td class="table-dark w-25 ps-3"><a href="addFav/{$music->id}" class="me-2 corazon">💜</a><a href="eliminar/{$music->id}" class="btn bg-danger me-2">X</a><a href="modificar/{$music->id}" class="btn bg-warning">modificar</a></td>
+                        <td class="table-dark w-25 ps-3"><a href="addFav/{$music->id_musica}" class="me-2 corazon">💜</a><a href="delete/{$music->id_musica}" class="btn bg-danger me-2">X</a><a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a></td>
                     </tr>
-                {/foreach}  
+                {/foreach}
         </tbody>
     </table>
 </div>
