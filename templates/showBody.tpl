@@ -9,7 +9,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active "style="height: 500px;" data-bs-interval="5000">
-                <img src="https://a3noticias.com.mx/a3news/wp-content/uploads/2020/12/Bad-Bunny.jpg" class="d-block w-100"  alt="...">
+                <img src="https://www.mendovoz.com/u/fotografias/m/2020/6/24/f1280x720-131422_263097_15.jpg" class="d-block w-100"  alt="...">
                 <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
