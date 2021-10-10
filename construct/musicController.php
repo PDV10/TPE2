@@ -40,6 +40,29 @@
             }
         }
 
+        function update($id){
+            $getDatesOfMusic = $this->model->getDatesOfMusic($id);
+            foreach ($getDatesOfMusic as $data) {
+                $nombre = $data->nombreCancion;
+                $artista = $data->artista;
+                $album = $data->album;
+                $anio = $data->anio;
+            }
+            $genres = $this->getAllGenre();
+            $this->view->musicUpdate($nombre,$artista,$album,$anio,$genres,$id);
+        }
+
+        function updateMusic(){
+            $nombre = $_REQUEST("nombre");
+            $artista = $_REQUEST("artista");
+            $album = $_REQUEST("album");
+            $anio = $_REQUEST("anio");
+            $genre = $_REQUEST("genre");
+            $id = $_REQUEST("id");
+            
+            $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$id);
+        }
+
         function getAllGenre(){
             $genre = $this->model->getAllGenre();
             return $genre;
