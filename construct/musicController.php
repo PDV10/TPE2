@@ -15,14 +15,8 @@
             $genre = $this->getAllGenre();
             $this->view->showHome($genre);
         }
-        
-        function saveGenreId($genre){
-            $saveGenreId = $genre;
-            return $saveGenreId;
-        }
 
         function showGenreMusic($genre){
-            $this->saveGenreId($genre);
             $genres = $this->getAllGenre();
             $musicForGenre = $this->model->musicForGenre($genre);
             $this->view->showTable($musicForGenre,$genres);
@@ -33,11 +27,10 @@
             $contraseña = $_REQUEST(["contraseña"]);
         }
         function delete($id){
+            $getOneSong = $this->model->getOneSong($id);
+            $id_genero = $getOneSong->id;
             $Musicdelete = $this->model->delete($id);
-            $saveGenreId = $this->saveGenreId(1);
-            if($Musicdelete){
-                header("Location:",BASE_URL . "categories" . $saveGenreId);
-            }
+            header("Location:". TABLA .$id_genero);
         }
 
         function update($id){
@@ -57,10 +50,14 @@
             $artista = $_REQUEST['artista'];
             $album = $_REQUEST['album'];
             $anio = $_REQUEST['anio'];
-            /* $genre = $_REQUEST['genre']; */
+            $genre = $_REQUEST['genre'];
             $id = $_REQUEST['id'];
+
+            $getOneSong = $this->model->getOneSong($id);
+            $id_genero = $getOneSong->id;
             
-            $this->model->updateMusic($nombre,$artista,$album,$anio/* ,$genre */,$id);
+            $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$id);
+            header("Location:". TABLA .$id_genero);
         }
 
         function getAllGenre(){
