@@ -16,7 +16,7 @@
                     <label class="form-label">Genero de la cancion</label>
                     <select class="form-select">
                         {foreach from=$genres item=$genre}
-                            <option name="genre" value="{$genre->genero}">{$genre->genero}</option>
+                            <option name="genre" value="{$genre->id}">{$genre->genero}</option>
                         {/foreach}
                     </select>
                 </div>

@@ -46,8 +46,9 @@
             $query = $this->db->prepare(
            'UPDATE m
             FROM musica m
-            INNER JOIN generos g 
-            SET nombreCancion = ?, artista = ?, album = ?, anio = ?, 
+            INNER JOIN generos g
+            ON m.id_genero_fk = g.id
+            SET m.nombreCancion = ?, m.artista = ?, m.album = ?, m.anio = ?, 
             WHERE m.id_musica = ?');
             $query->execute([$nombre,$artista,$album,$anio,/* $genre, */$id]);
         }
