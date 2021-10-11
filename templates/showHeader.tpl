@@ -12,5 +12,10 @@
     <body>
     <div class="contenedor">
         <h1 class="titulo">TPE 2</h1>
-        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">login</button>
+        {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
+            <a class="nav-link" href="logout">({$smarty.session.USER_EMAIL}) Logout</a>
+        {else}
+            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">login</button>
+        {/if}
+        
     </div>

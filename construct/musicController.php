@@ -1,14 +1,17 @@
 <?php
     require_once('model/musicModel.php');
     require_once('view/view.php');
+    require_once 'helpers/auth.helper.php';
 
     class musicController{
         private $view;
         private $model;
+        private $authHelper;
 
         function __construct(){
             $this->view = new view();
             $this->model = new musicModel();
+            $this->authHelper = new AuthHelper();
         }
 
         function showView(){

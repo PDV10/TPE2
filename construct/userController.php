@@ -1,13 +1,17 @@
 <?php
     require_once('model/userModel.php');
     require_once('view/view.php');
+    require_once 'helpers/auth.helper.php';
+
     class userController{
         private $userModel;
         private $view;
+        private $authHelper;
 
         function __construct(){
             $this->userModel=new userModel();
             $this->view=new view();
+            $this->authHelper = new AuthHelper();
         }
 
         public function login() {
@@ -21,10 +25,15 @@
                 // Si el user$user existe y las contraseñas coinciden
                 if ($user && password_verify($password, $user->contraseña)) {
                     // armo la sesion del user$user
+                    $this->authHelper->login($user);
                     header("Location: " . BASE_URL);
                 } else {
                     $this->view->showLogin("Usuario o contraseña inválida");
                 }
             }
+        }
+
+        function logout(){
+            $this->authHelper->logout();
         }
     }

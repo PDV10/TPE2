@@ -35,4 +35,7 @@
         case 'updateMusic':
             $musicController->updateMusic();
             break;
+        case 'logout':
+            $userController->logout();
+            break;
     }
