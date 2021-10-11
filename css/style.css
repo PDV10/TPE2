@@ -3,6 +3,9 @@
 body{
     background-color: rgba(0, 0, 0, 0.753);
 }
+.logopag{
+    width: 25%;
+}
 
 .titulo{
     color: wheat;
@@ -89,6 +92,3 @@ body{
     border-radius: 20px;       
     border: 3px solid #1E1D21;  
 }
-/* #logo{
-    width: 10px;
-} */

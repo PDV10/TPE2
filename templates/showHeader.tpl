@@ -11,7 +11,7 @@
     </head>
     <body>
     <div class="contenedor">
-        <img src="img/logo.png" alt="imagen del logo" id="logo" style="width: 15%;">
+        <img  src="img/logo2.png" class="logopag" alt="imagen del logo" style="width: 50px;">
         {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
             <a class="nav-link" href="logout">({$smarty.session.USER_EMAIL}) Logout</a>
         {else}
