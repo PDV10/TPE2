@@ -1,4 +1,3 @@
-
 <nav>
     <ul class="categorie-list">
         {foreach from=$genres item=$genre }

@@ -27,4 +27,11 @@
             break;
         case 'delete':
             $musicController->delete($params[1]);
+            break;
+        case 'update':
+            $musicController->update($params[1]);
+            break;
+        case 'updateMusic':
+            $musicController->updateMusic();
+            break;
     }
