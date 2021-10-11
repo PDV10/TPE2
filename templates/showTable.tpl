@@ -1,5 +1,6 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
+{include file="templates/showModal.tpl"}
 <div class="container-fluid justify-content-center w-25 mt-4">
     <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
