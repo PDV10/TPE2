@@ -25,7 +25,11 @@
                         <td class="table-dark ">{$music->artista}</td>
                         <td class="table-dark ">{$music->album}</td>
                         <td class="table-dark ">{$music->anio}</td>
-                        <td class="table-dark w-25 ps-3"><a href="addFav/{$music->id_musica}" class="me-2 corazon">💜</a><a href="delete/{$music->id_musica}" class="btn bg-danger me-2">X</a><a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a></td>
+                        {if isset($smarty.session.USER_ID)}
+                            <td class="table-dark w-25 ps-3"><a href="addFav/{$music->id_musica}" class="me-2 corazon">💜</a><a href="delete/{$music->id_musica}" class="btn bg-danger me-2">X</a><a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a></td>
+                        {else}
+                            <td class="table-dark w-25 ps-3"><a class="me-2 corazon" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">💜</a><a class="btn bg-danger me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">X</a><a class="btn bg-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">modificar</a></td>
+                        {/if}
                     </tr>
                 {/foreach}
         </tbody>
