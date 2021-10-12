@@ -1,13 +1,7 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
 {include file="templates/showModal.tpl"}
-<div class="container-fluid justify-content-center w-25 mt-4">
-    <form action="filtro">
-        <input type="hidden" name="id" value="{$id}">
-        <input class="form-control me-2" name="filtro" type="search" placeholder="Search">
-        <button type="submit" class="btn btn-secondary" >Buscar</button>
-    </form>
-</div>
+{include file="templates/formFiltro.tpl"}
 
 <div class="container mt-4" id="global">
     <table class="table table-dark table-striped text-center">
