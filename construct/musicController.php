@@ -68,4 +68,18 @@
             return $genre;
         }
 
+        function filtro(){
+            $filtrado = $_REQUEST['filtro'];
+            $yaFiltrado = $this->model->filtrar($filtrado);
+            /* 
+            $getOneSong = $this->model->getOneSong();
+            $id_genero = $getOneSong->id; */
+
+            if($yaFiltrado){
+                header("Location:". TABLA );
+            }else{
+                header("Location:". BASE_URL);
+            }
+        }
+
     }

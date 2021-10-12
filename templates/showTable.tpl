@@ -2,10 +2,12 @@
 {include file="templates/showNav.tpl"}
 {include file="templates/showModal.tpl"}
 <div class="container-fluid justify-content-center w-25 mt-4">
-    <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <a class="btn btn-secondary" href="#" >Buscar</a>
+
+    <form class="d-flex" action="filtro">
+        <input class="form-control me-2" name="filtro" type="search" placeholder="Search">
+        <button type="submit" class="btn btn-secondary" >Buscar</button>
     </form>
+
 </div>
 <div class="container mt-4" id="global">
     <table class="table table-dark table-striped text-center">
