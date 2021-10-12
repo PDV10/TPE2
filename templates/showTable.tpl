@@ -1,6 +1,7 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
 {include file="templates/showModal.tpl"}
+<<<<<<< HEAD
 <div class="container-fluid justify-content-center w-25 mt-4">
     <form action="filtro" class="d-flex">
         <input type="hidden" name="id" value="{$id}">
@@ -8,6 +9,9 @@
         <button type="submit" class="btn btn-secondary" >Buscar</button>
     </form>
 </div>
+=======
+{include file="templates/formFiltro.tpl"}
+>>>>>>> bac856cc57f7bb84d7b19c81c2c2b8c9c7f8013e
 
 <div class="container mt-4" id="global">
     <table class="table table-dark table-striped text-center">
