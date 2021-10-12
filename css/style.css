@@ -16,7 +16,7 @@ a{
     align-items: center;
 }
 img.icono{
-    width: 75px;
+    width: 40px;
 }
 
 a h1.struchify{
@@ -26,8 +26,7 @@ a h1.struchify{
 }
 
 .contenedor{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
 }

@@ -67,4 +67,5 @@
             $genre = $this->model->getAllGenre();
             return $genre;
         }
+
     }
