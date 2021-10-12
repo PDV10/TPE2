@@ -3,7 +3,7 @@
     require_once('construct/userController.php');
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-    define('TABLA', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'categories/1');
+    define('TABLA', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'categories/');
      
     if(!empty($_REQUEST['action'])){
         $action = $_REQUEST['action'];
@@ -21,7 +21,7 @@
             $musicController->showView();
             break; 
         case 'categories':
-            $musicController->showGenreMusic($params[1]);   
+            $musicController->showGenreMusic($params[1], NULL); 
             break;
         case 'login':
             $userController->login();

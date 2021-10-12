@@ -63,14 +63,14 @@
             $query->execute([$nombre,$artista,$album,$anio,$genre,$id]);
         }
 
-        function filtrar($filtrado){
+        function filtrar($genero, $filtrado){
             $query = $this->db->prepare(
            'SELECT m.*, g.genero
             FROM musica m
             INNER JOIN generos g
             ON m.id_genero_fk = g.id
-            WHERE m.nombreCancion LIKE ? || m.artista LIKE ? || m.album LIKE ? || m.anio LIKE ?');
-            $filtro = $query->execute([$filtrado.'%',$filtrado.'%',$filtrado.'%',$filtrado.'%']);
+            WHERE g.id = ? && (m.nombreCancion LIKE ? || m.artista LIKE ? || m.album LIKE ? || m.anio LIKE ?)');
+            $filtro = $query->execute([$genero,$filtrado.'%',$filtrado.'%',$filtrado.'%',$filtrado.'%']);
 
             if($filtro){
                 return $query->fetchAll(PDO::FETCH_OBJ);

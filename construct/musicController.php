@@ -7,11 +7,13 @@
         private $view;
         private $model;
         private $authHelper;
+        private $genres;
 
         function __construct(){
             $this->view = new view();
             $this->model = new musicModel();
             $this->authHelper = new AuthHelper();
+            $this->genres = $this->getAllGenre();
         }
 
         function showView(){
@@ -19,16 +21,15 @@
             $this->view->showHome($genre);
         }
 
-        function showGenreMusic($genre){
-            $genres = $this->getAllGenre();
-            $musicForGenre = $this->model->musicForGenre($genre);
-            $this->view->showTable($musicForGenre,$genres);
+        function showGenreMusic($genre, $filtro=NULL){
+            if(isset($genre) && isset($filtro)){
+                $musicForGenre = $this->model->filtrar($genre, $filtro);
+            }else{
+                $musicForGenre = $this->model->musicForGenre($genre);
+            }
+           $this->view->showTable($musicForGenre,$this->genres, $genre);
         }
 
-        function login(){
-            $usuario = $_REQUEST(["usuario"]);
-            $contraseña = $_REQUEST(["contraseña"]);
-        }
         function delete($id){
             $getOneSong = $this->model->getOneSong($id);
             $id_genero = $getOneSong->id;
@@ -69,17 +70,9 @@
         }
 
         function filtro(){
-            $filtrado = $_REQUEST['filtro'];
-            $yaFiltrado = $this->model->filtrar($filtrado);
-            /* 
-            $getOneSong = $this->model->getOneSong();
-            $id_genero = $getOneSong->id; */
-
-            if($yaFiltrado){
-                header("Location:". TABLA );
-            }else{
-                header("Location:". BASE_URL);
-            }
+            $id = $_REQUEST['id'];
+            $filtro = $_REQUEST['filtro'];
+            $this->showGenreMusic($id,$filtro);
         }
 
     }
