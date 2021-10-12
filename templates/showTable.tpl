@@ -2,8 +2,8 @@
 {include file="templates/showNav.tpl"}
 {include file="templates/showModal.tpl"}
 <div class="container-fluid justify-content-center w-25 mt-4">
-    <form class="d-flex" action="buscar" method="POST">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <a class="btn btn-secondary" href="#" >Buscar</a>
     </form>
 </div>
@@ -16,7 +16,7 @@
                 <th>album</th>
                 <th>año</th>
                 {if isset($smarty.session.USER_ID)}
-                    <th>acciones</th>
+                <th>acciones</th>
                 {/if}
             </tr>
         </thead>
