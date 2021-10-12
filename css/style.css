@@ -14,7 +14,11 @@ a{
     display: flex;
     flex-direction: row;
     align-items: center;
-} 
+}
+img.icono{
+    width: 75px;
+    display: none;
+}
 
 a h1.struchify{
     color: rgb(20, 200, 110);
@@ -23,7 +27,7 @@ a h1.struchify{
 }
 
 .contenedor{
-    margin: 10px;
+    margin: 5px;
     display: flex;
     justify-content: space-between;
 }
