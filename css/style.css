@@ -1,14 +1,25 @@
-
-
 body{
     background-color: rgba(0, 0, 0, 0.753);
 }
-.logopag{
-    width: 25%;
+
+a{
+    text-decoration: none;
 }
 
 .titulo{
     color: wheat;
+}
+
+.logopag{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+} 
+
+a h1.struchify{
+    color: rgb(20, 200, 110);
+    font-size: 30px;
+    letter-spacing: 0.5px;
 }
 
 .contenedor{
