@@ -2,7 +2,7 @@
 {include file="templates/showNav.tpl"}
 {include file="templates/showModal.tpl"}
 <div class="container-fluid justify-content-center w-25 mt-4">
-    <form action="filtro">
+    <form action="filtro" class="d-flex">
         <input type="hidden" name="id" value="{$id}">
         <input class="form-control me-2" name="filtro" type="search" placeholder="Search">
         <button type="submit" class="btn btn-secondary" >Buscar</button>
