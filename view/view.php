@@ -34,4 +34,9 @@ class view{
         $this->smarty->assign("id", $id);
         $this->smarty->display("templates/updateMusic.tpl");
     }
+
+    function showFormAddSong($genres){
+        $this->smarty->assign("genres", $genres);
+        $this->smarty->display("templates/showFormAddSong.tpl");
+    }
 }

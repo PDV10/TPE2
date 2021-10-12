@@ -1,12 +1,15 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
 {include file="templates/showModal.tpl"}
-<div class="container-fluid justify-content-center w-25 mt-4">
+<div class="container-fluid justify-content-center w-25 mt-4 d-flex">
     <form action="filtro" class="d-flex">
         <input type="hidden" name="id" value="{$id}">
         <input class="form-control me-2" name="filtro" type="search" placeholder="Search">
         <button type="submit" class="btn btn-secondary" >Buscar</button>
     </form>
+    {if isset($smarty.session.USER_ID)}
+        <a href="showFormAddSong" class="btn btn-secondary ms-1" >Agregar</a>
+    {/if}
 </div>
 
 <div class="container mt-4" id="global">
@@ -18,7 +21,7 @@
                 <th>album</th>
                 <th>año</th>
                 {if isset($smarty.session.USER_ID)}
-                <th>acciones</th>
+                    <th>acciones</th>
                 {/if}
             </tr>
         </thead>

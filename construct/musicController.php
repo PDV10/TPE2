@@ -75,4 +75,23 @@
             $this->showGenreMusic($id,$filtro);
         }
 
+        function showFormAddSong(){
+            $this->view->showFormAddSong($this->genres);
+        }
+
+        function addSong(){
+            $nombreCancion = $_REQUEST['nombre'];
+            $artista = $_REQUEST['artista'];
+            $album = $_REQUEST['album'];
+            $anio = $_REQUEST['anio'];
+            $genero = $_REQUEST['genre'];
+
+            $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero);
+           
+            if($songAdd){
+                header("Location:". TABLA . $genero);
+            }
+            
+        }
+
     }

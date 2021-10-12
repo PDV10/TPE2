@@ -78,4 +78,17 @@
                 return false;
             }
         }
+
+        function addSong($nombreCancion,$artista,$album,$anio,$genero){
+            $query = $this->db->prepare(
+            'INSERT INTO musica (`nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`)
+             VALUES (?,?,?,?,?)');
+            $addSong = $query->execute([$nombreCancion,$artista,$album,$anio,$genero]);
+
+            if($addSong){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }    

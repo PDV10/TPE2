@@ -1,6 +1,6 @@
 <div class="container modificar">
     <form action="updateMusic" method="POST">
-            <legend>Usted quiere modificar la cancion "{$nombre|upper}"</legend>
+        <legend>Usted quiere modificar la cancion "{$nombre|upper}"</legend>
             <div class="mb-3">
                 <input type="hidden" name="id" value="{$id}" class="form-control">
                 <div class="pt-3">
@@ -29,6 +29,6 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Modificar</button>
+        <button type="submit" class="btn btn-primary">Modificar</button>
     </form>
 </div>

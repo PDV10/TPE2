@@ -41,4 +41,10 @@
         case 'filtro':
             $musicController->filtro();
             break;
+        case 'showFormAddSong':
+            $musicController->showFormAddSong();
+            break;
+        case 'addSong':
+            $musicController->addSong();
+            break;
     }
