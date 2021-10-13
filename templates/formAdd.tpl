@@ -18,6 +18,10 @@
             <label class="form-label">año de la cancion</label>
             <input type="date" name="anio" class="form-control formulario" required="required">
         </div>
+        <div class="pt-3">
+            <label class="form-label">Imagen de la cancion</label>
+            <input type="text" name="imagen" class="form-control formulario" required="required">
+        </div>
     </div>
     <div class="mb-3">
         <label class="form-label">Genero de la cancion</label>

@@ -32,12 +32,16 @@
                         <td class="table-dark ">{$music->artista}</td>
                         <td class="table-dark ">{$music->album}</td>
                         <td class="table-dark ">{$music->anio}</td>
+                        <td class="table-dark w-25 ps-3">
                         {if isset($smarty.session.USER_ID)}
-                            <td class="table-dark w-25 ps-3"><a href="addFav/{$music->id_musica}" class="me-2 corazon">💜</a><a href="delete/{$music->id_musica}" class="btn bg-danger me-2">X</a><a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a></td>
+                            <a href="addFav/{$music->id_musica}" class="me-2 corazon">💜</a><a href="delete/{$music->id_musica}" class="btn bg-danger me-2">X</a><a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
                         {/if}
+                            <a href="#ver_mas" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-whatever="sadasdaedaaefaasd" >Ver mas</button>
+                        </td>
                     </tr>
                 {/foreach}
         </tbody>
     </table>
 </div>
+{include file="templates/ModalSeeMore.tpl"}
 {include file="templates/showFooter.tpl"}

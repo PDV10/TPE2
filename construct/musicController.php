@@ -44,9 +44,10 @@
                 $artista = $data->artista;
                 $album = $data->album;
                 $anio = $data->anio;
+                $imagen = $data->imagen;
             }
             $genres = $this->getAllGenre();
-            $this->view->musicUpdate($nombre,$artista,$album,$anio,$genres,$id);
+            $this->view->musicUpdate($nombre,$artista,$album,$anio,$genres,$imagen,$id);
         }
 
         function updateMusic(){
@@ -55,13 +56,13 @@
             $album = $_REQUEST['album'];
             $anio = $_REQUEST['anio'];
             $genre = $_REQUEST['genre'];
+            $imagen = $_REQUEST['imagen'];
             $id = $_REQUEST['id'];
 
             $getOneSong = $this->model->getOneSong($id);
             $id_genero = $getOneSong->id;
-            
-            $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$id);
-            header("Location:". TABLA .$id_genero);
+            $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id);
+            header("Location:". TABLA .$genre);
         }
 
         function getAllGenre(){
@@ -85,6 +86,7 @@
             $album = $_REQUEST['album'];
             $anio = $_REQUEST['anio'];
             $genero = $_REQUEST['genre'];
+            $imagen = $_REQUEST['imagen'];
             // if ($nombreCancion == '' || $artista == '' || $album == '') {
 
             //     $this->view->showFormAddSong($this->genres);
@@ -92,7 +94,7 @@
             //     $this->view->showError('*Tiene que completar todos los campos*');
 
             // }else{
-                $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero);  
+                $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen);  
                 if($songAdd){
                     header("Location:". TABLA . $genero);
                 }

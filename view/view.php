@@ -25,12 +25,13 @@ class view{
         $this->smarty->display("templates/showError.tpl");
     }
 
-    function musicUpdate($nombre,$artista,$album,$anio,$genres,$id){
+    function musicUpdate($nombre,$artista,$album,$anio,$genres,$imagen,$id){
         $this->smarty->assign("nombre", $nombre);
         $this->smarty->assign("artista", $artista);
         $this->smarty->assign("album", $album);
         $this->smarty->assign("anio", $anio);
         $this->smarty->assign("genres", $genres);
+        $this->smarty->assign("imagen", $imagen);
         $this->smarty->assign("id", $id);
         $this->smarty->display("templates/updateMusic.tpl");
     }

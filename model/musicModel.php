@@ -53,14 +53,14 @@
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
 
-        function updateMusic($nombre,$artista,$album,$anio,$genre,$id){
+        function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id){
             $query = $this->db->prepare(
             'UPDATE musica m
             INNER JOIN generos g 
             ON m.id_genero_fk = g.id
-            SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ? 
+            SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ?, imagen = ? 
             WHERE m.id_musica = ?');
-            $query->execute([$nombre,$artista,$album,$anio,$genre,$id]);
+            $query->execute([$nombre,$artista,$album,$anio,$genre,$imagen,$id]);
         }
 
         function filtrar($genero, $filtrado){
@@ -79,11 +79,11 @@
             }
         }
 
-        function addSong($nombreCancion,$artista,$album,$anio,$genero){
+        function addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen){
             $query = $this->db->prepare(
-            'INSERT INTO musica (`nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`)
-             VALUES (?,?,?,?,?)');
-            $addSong = $query->execute([$nombreCancion,$artista,$album,$anio,$genero]);
+            'INSERT INTO musica (`nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`,`imagen`)
+             VALUES (?,?,?,?,?,?)');
+            $addSong = $query->execute([$nombreCancion,$artista,$album,$anio,$genero,$imagen]);
 
             if($addSong){
                 return true;
