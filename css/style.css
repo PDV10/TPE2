@@ -126,3 +126,15 @@ input.formulario:invalid {
   input.formulario:required:valid {
     border-color: #136f00;
   }
+
+.imgInfoMusic{
+    width: auto;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.items-info{
+    font-size: 25px;
+    font-family: 'fangsong' , 'monospace', Calibri, 'Trebuchet MS', sans-serif;
+    border-bottom: 2px solid aquamarine;
+}

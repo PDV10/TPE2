@@ -43,9 +43,20 @@
             return $query->fetch(PDO::FETCH_OBJ);
         }
 
+        function getGenero($id){
+            $query = $this->db->prepare(
+           'SELECT g.genero AS genero
+            FROM musica m
+            INNER JOIN generos g
+            ON m.id_genero_fk = g.id
+            WHERE m.id_musica = ?');
+            $query->execute([$id]);
+            return $query->fetch(PDO::FETCH_OBJ);
+        }
+
         function getDatesOfMusic($id){
             $query = $this->db->prepare(
-           'SELECT m.*
+           'SELECT m.* 
             FROM musica m
             INNER JOIN generos g
             WHERE m.id_musica = ?');

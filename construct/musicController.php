@@ -100,4 +100,21 @@
                 }
             // }
         }
+        
+        function ShowModalseeMore($id){
+            $infoMusic = $this->model->getDatesOfMusic($id);
+            foreach ($infoMusic as $info) {
+                $cancion = $info->nombreCancion;
+                $artista = $info->artista;
+                $album = $info->album;
+                $anio = $info->anio;
+                $imagen = $info->imagen;
+                $id_genero = $info->id_genero_fk;
+            }
+            $getGenero = $this->model->getGenero($id);
+            $genero = $getGenero->genero;
+            if($infoMusic){
+                $this->view->showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero);
+            }
+        }
     }

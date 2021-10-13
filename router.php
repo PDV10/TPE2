@@ -47,4 +47,7 @@
         case 'addSong':
             $musicController->addSong();
             break;
+        case 'verMas':
+            $musicController->ShowModalseeMore($params[1]);
+            break;
     }
