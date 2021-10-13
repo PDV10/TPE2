@@ -5,19 +5,19 @@
                 <input type="hidden" name="id" value="{$id}" class="form-control">
                 <div class="pt-3">
                     <label class="form-label">Nombre de la cancion</label>
-                    <input type="text" name="nombre" class="form-control" value="{$nombre}">
+                    <input type="text" name="nombre" class="form-control formulario" value="{$nombre}" required>
                 </div>
                 <div class="pt-3">
                     <label class="form-label">Nombre del artista</label>
-                    <input type="text" name="artista" class="form-control" value="{$artista}">
+                    <input type="text" name="artista" class="form-control formulario" value="{$artista}" required>
                 </div>
                 <div class="pt-3">
                     <label class="form-label">Nombre del album</label>
-                    <input type="text" name="album" class="form-control" value="{$album}">
+                    <input type="text" name="album" class="form-control formulario" value="{$album}" required>
                 </div>
                 <div class="pt-3 w-5">
                     <label class="form-label">año de la cancion</label>
-                    <input type="date" name="anio" class="form-control" value="{$anio}">
+                    <input type="date" name="anio" class="form-control formulario" value="{$anio}" required>
                 </div>
             </div>
             <div class="mb-3">
