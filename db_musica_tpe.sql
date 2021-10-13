@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2021 a las 22:41:15
+-- Tiempo de generación: 13-10-2021 a las 20:19:48
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -65,11 +65,19 @@ CREATE TABLE `musica` (
 --
 
 INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`) VALUES
-(1, 'cumbia 420', 'l-gante', 'perrito malvado', '2021-10-22', 1),
-(2, 'boca yo te amo', 'el perro', 'asdas', '2021-10-21', 1),
-(3, 'deja de llorar', 'el polaco', 'asesad', '2021-10-20', 1),
-(4, 'el rap es esto', 'duo kie', 'barroco', '2009-11-21', 6),
-(5, 'galang', 'alika', 'educate yourself', '2008-12-05', 4);
+(10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 3),
+(11, 'Fresco', 'WOS', 'Carabana', '2019-10-04', 6),
+(12, 'Llenos de magia', 'La Vela Puerca', 'A contra luz', '2016-07-08', 3),
+(13, 'Viejo Karma!', 'Las Pastillas Del Abuelo', '', '2017-11-12', 3),
+(14, 'Demaciado Loco', 'Paulo Londra', 'Home Run', '2019-05-23', 2),
+(15, 'Loco', 'Tiago PZK', 'Loco', '2021-09-16', 2),
+(16, 'Hazmelo', 'Tiago PZK', 'Hazmelo', '2021-05-26', 2),
+(17, 'Como si no importara', 'Emilia & Duki', 'Como si no importara', '2021-07-13', 2),
+(18, 'ADEMAS DE MI REMIX', 'Rusherking, Tiago PZK, KHEA, LIT Killah, Duki, Maria Becerra', 'A demas de mi', '2021-03-04', 2),
+(19, 'Nat Geo', 'Falke 912, Bhavi Ft. LIT Killah', 'Nat Geo', '2021-07-15', 2),
+(20, 'No me conocen (REMIX)', 'BANDIDO, DUKI, REI, TIAGO PZK', 'No me conocen', '2021-06-16', 2),
+(21, 'Prende la Cámara', 'FMK, Tiago PZK', 'Prende la Cámara', '2021-07-01', 2),
+(22, 'Rápido Lento', 'Emilia, Tiago PZK', 'Rápido Lento', '2021-09-30', 2);
 
 -- --------------------------------------------------------
 
@@ -128,7 +136,7 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT de la tabla `musica`
 --
 ALTER TABLE `musica`
-  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
