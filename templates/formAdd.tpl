@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container modificar">
     <legend>Agregar Cancion</legend>
     <div class="mb-3">
         <input type="hidden" name="id" class="form-control">

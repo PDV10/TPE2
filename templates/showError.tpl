@@ -1,1 +1,1 @@
-<h1>{$msg}</h1>
+<h1 class="error">{$msg}</h1>

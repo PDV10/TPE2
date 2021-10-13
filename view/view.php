@@ -39,4 +39,8 @@ class view{
         $this->smarty->assign("genres", $genres);
         $this->smarty->display("templates/showFormAddSong.tpl");
     }
+    function showError($msg){
+        $this->smarty->assign("msg",$msg);
+        $this->smarty->display("templates/showError.tpl");
+    }
 }

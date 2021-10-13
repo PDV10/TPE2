@@ -91,7 +91,6 @@ a h1.struchify{
 	height: 500px;
 	width: 80%;
 	overflow-y: scroll;
-    overflow: hidden;
     
 }
 #global::-webkit-scrollbar {
@@ -108,4 +107,8 @@ a h1.struchify{
 }
 .modificar{
     color: white;
+}
+.error{
+    text-align: center;
+    color: red;
 }

@@ -1,7 +1,7 @@
 <?php
     require_once('model/musicModel.php');
     require_once('view/view.php');
-    require_once 'helpers/auth.helper.php';
+    require_once ('helpers/auth.helper.php');
 
     class musicController{
         private $view;
@@ -85,13 +85,17 @@
             $album = $_REQUEST['album'];
             $anio = $_REQUEST['anio'];
             $genero = $_REQUEST['genre'];
+            if ($nombreCancion == '' || $artista == '' || $album == '') {
 
-            $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero);
-           
-            if($songAdd){
-                header("Location:". TABLA . $genero);
+                $this->view->showFormAddSong($this->genres);
+
+                $this->view->showError('*Tiene que completar todos los campos*');
+
+            }else{
+                $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero);  
+                if($songAdd){
+                    header("Location:". TABLA . $genero);
+                }
             }
-            
         }
-
     }
