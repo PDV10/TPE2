@@ -112,3 +112,17 @@ a h1.struchify{
     text-align: center;
     color: red;
 }
+
+input.formulario:invalid {
+    background-color: #ffdddd;
+  }
+
+  input.formulario:valid {
+    background-color: #ddffdd;
+  }
+  input.formulario:required:invalid {
+    border-color: #C00000;
+  }
+  input.formulario:required:valid {
+    border-color: #136f00;
+  }

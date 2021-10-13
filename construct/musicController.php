@@ -85,17 +85,17 @@
             $album = $_REQUEST['album'];
             $anio = $_REQUEST['anio'];
             $genero = $_REQUEST['genre'];
-            if ($nombreCancion == '' || $artista == '' || $album == '') {
+            // if ($nombreCancion == '' || $artista == '' || $album == '') {
 
-                $this->view->showFormAddSong($this->genres);
+            //     $this->view->showFormAddSong($this->genres);
 
-                $this->view->showError('*Tiene que completar todos los campos*');
+            //     $this->view->showError('*Tiene que completar todos los campos*');
 
-            }else{
+            // }else{
                 $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero);  
                 if($songAdd){
                     header("Location:". TABLA . $genero);
                 }
-            }
+            // }
         }
     }

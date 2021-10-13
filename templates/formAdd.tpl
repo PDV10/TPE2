@@ -4,19 +4,19 @@
         <input type="hidden" name="id" class="form-control">
         <div class="pt-3">
             <label class="form-label">Nombre de la cancion</label>
-            <input type="text" name="nombre" class="form-control" >
+            <input type="text" name="nombre" class="form-control formulario" required="required">
         </div>
         <div class="pt-3">
             <label class="form-label">Nombre del artista</label>
-            <input type="text" name="artista" class="form-control" >
+            <input type="text" name="artista" class="form-control formulario" required="required">
         </div>
         <div class="pt-3">
             <label class="form-label">Nombre del album</label>
-            <input type="text" name="album" class="form-control" >
+            <input type="text" name="album" class="form-control formulario" required="required">
         </div>
         <div class="pt-3 w-5">
             <label class="form-label">año de la cancion</label>
-            <input type="date" name="anio" class="form-control">
+            <input type="date" name="anio" class="form-control formulario" required="required">
         </div>
     </div>
     <div class="mb-3">
