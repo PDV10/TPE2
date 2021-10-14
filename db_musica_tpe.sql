@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2021 a las 09:50:59
+-- Tiempo de generación: 15-10-2021 a las 00:40:59
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -56,6 +56,7 @@ CREATE TABLE `musica` (
   `artista` varchar(100) NOT NULL,
   `album` varchar(100) NOT NULL,
   `anio` date NOT NULL,
+  `favorito` tinyint(1) DEFAULT NULL,
   `imagen` varchar(500) NOT NULL,
   `id_genero_fk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -64,41 +65,42 @@ CREATE TABLE `musica` (
 -- Volcado de datos para la tabla `musica`
 --
 
-INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, `imagen`, `id_genero_fk`) VALUES
-(10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 'img/NuncaQuise.jpg', 3),
-(11, 'Fresco', 'WOS', 'Carabana', '2019-10-04', 'img/fresco.jpg', 6),
-(12, 'Llenos de magia', 'La Vela Puerca', 'A contra luz', '2016-07-08', 'img/llenosDeMagia.jpg', 3),
-(13, 'Viejo Karma!', 'Las Pastillas Del Abuelo', 'Desafios', '2017-11-12', 'img/ViejoKarma.jpg', 3),
-(14, 'Demaciado Loco', 'Paulo Londra', 'Home Run', '2019-05-23', 'img/DemaciadoLoco.jpg', 2),
-(15, 'Loco', 'Tiago PZK', 'Loco', '2021-09-16', 'img/Loco.jpg', 2),
-(16, 'Hazmelo', 'Tiago PZK', 'Hazmelo', '2021-05-26', 'img/Hazmelo.jpg', 2),
-(17, 'Como si no importara', 'Emilia & Duki', 'Como si no importara', '2021-07-13', 'img/ComoSiNoImportara.jpg', 2),
-(18, 'ADEMAS DE MI REMIX', 'Rusherking, Tiago PZK, KHEA, LIT Killah, Duki, Maria Becerra', 'A demas de mi', '2021-03-04', 'img/AdemasDeMiRemix.jpg', 2),
-(19, 'Nat Geo', 'Falke 912, Bhavi Ft. LIT Killah', 'Nat Geo', '2021-07-15', 'img/NatGeo.jpg', 2),
-(20, 'No me conocen (REMIX)', 'BANDIDO, DUKI, REI, TIAGO PZK', 'No me conocen', '2021-06-16', 'img/NoMeConocen (REMIX).jpg', 2),
-(21, 'Prende la Cámara', 'FMK, Tiago PZK', 'Prende la Cámara', '2021-07-01', 'img/PrendeLaCámara.jpg', 2),
-(22, 'Rápido Lento', 'Emilia, Tiago PZK', 'Rápido Lento', '2021-09-30', 'img/RápidoLento.jpg', 2),
-(26, 'M1 A1', 'Gorillaz', 'M1 A1', '2015-02-12', 'img/gorillaz.jpg', 3),
-(27, 'Ruta 66', 'Pappo\'s Blues', 'Caso Cerrado', '1995-03-15', 'img/papo.jpg', 3),
-(28, 'Balada Del Diablo y La Muerte', 'La Renga', 'Despedazado por mil partes', '1996-07-21', 'img/LaRenga.jpg', 3),
-(29, 'Toxicity ', 'System Of A Down', 'System Of A Down', '2001-09-04', 'img/SystemOfaDown.jpg', 3),
-(30, 'Crimen', 'Gustavo Cerati', 'Ahí Vamos', '2006-10-05', 'img/cerati.jpg', 3),
-(31, 'JIJIJI', 'Los Redondos', 'Oktubre', '1986-10-18', 'img/indioSolari.jpg', 3),
-(32, 'GALANG', 'Alika', 'EDUCATE YOURSELF', '2008-04-19', 'img/alika.jpg', 4),
-(33, 'Te robaste mi corazon', 'Fidel Nadal', 'Forever together', '2010-10-10', 'img/fidelNadal.jpg', 4),
-(34, 'International love ', 'Fidel Nadal', 'INTERNATIONAL LOVE\"', '2008-10-16', 'img/fidelNadal.jpg', 4),
-(35, 'Somewhere over the Rainbow', 'Israel \"IZ\" Kamakawiwoʻole', 'Over the Rainbow', '2010-04-12', 'img/OverTheRainbow.jpg', 4),
-(36, 'Is This Love', 'Bob Marley & The Wailers', 'Kaya', '1978-07-07', 'img/BobMarley.jpg', 4),
-(37, 'Hoja en Blanco', 'Dread Mar I', '10 Años ', '2016-11-04', 'img/DreadMarI.jpg', 4),
-(38, 'Tiempo', 'Rabeat & Underdann', 'Tiempo', '2016-10-13', 'img/Rabeat.jpg', 4),
-(39, 'Un Nuevo Día', 'Zona Ganjah', 'Poder', '2010-06-10', 'img/ZonaGanjah.jpg', 4),
-(40, 'Lose Yourself', 'Eminem', 'Lose Yourself', '2002-06-22', 'img/eminem.jpg', 6),
-(41, 'Rap God', 'Eminem', 'Sencillo', '2013-10-13', 'img/eminem.jpg', 6),
-(42, 'In Da Club', '50 Cent', 'In Da Club', '2009-06-09', 'img/50Cent.jpg', 6),
-(43, 'Candy Shop', '50 Cent', 'Candy Shop', '2009-06-16', 'img/50Cent.jpg', 6),
-(44, 'goosebumps', 'Travis Scott', 'Birds in the Trap Sing McKnight', '2017-04-14', 'img/TravisScott.jpg', 6),
-(45, 'Black And Yellow', 'Wiz Khalifa', 'Black and Yellow (feat. Juicy J, Snoop Dogg & T-Pain)', '2011-01-07', 'img/wizKhalifa.jpg', 6),
-(46, 'En Boca De Tantos', 'Porta', 'En Boca De Tantos', '2009-06-26', 'img/porta.jpg', 6);
+INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, `favorito`, `imagen`, `id_genero_fk`) VALUES
+(10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 0, 'img/NuncaQuise.jpg', 3),
+(11, 'Fresco', 'WOS', 'Carabana', '2019-10-04', 0, 'img/fresco.jpg', 6),
+(12, 'Llenos de magia', 'La Vela Puerca', 'A contra luz', '2016-07-08', 1, 'img/llenosDeMagia.jpg', 3),
+(13, 'Viejo Karma!', 'Las Pastillas Del Abuelo', 'Desafios', '2017-11-12', 1, 'img/ViejoKarma.jpg', 3),
+(14, 'Demaciado Loco', 'Paulo Londra', 'Home Run', '2019-05-23', 1, 'img/DemaciadoLoco.jpg', 2),
+(15, 'Loco', 'Tiago PZK', 'Loco', '2021-09-16', 1, 'img/Loco.jpg', 2),
+(16, 'Hazmelo', 'Tiago PZK', 'Hazmelo', '2021-05-26', 1, 'img/Hazmelo.jpg', 2),
+(17, 'Como si no importara', 'Emilia & Duki', 'Como si no importara', '2021-07-13', 0, 'img/ComoSiNoImportara.jpg', 2),
+(18, 'ADEMAS DE MI REMIX', 'Rusherking, Tiago PZK, KHEA, LIT Killah, Duki, Maria Becerra', 'A demas de mi', '2021-03-04', 0, 'img/AdemasDeMiRemix.jpg', 2),
+(19, 'Nat Geo', 'Falke 912, Bhavi Ft. LIT Killah', 'Nat Geo', '2021-07-15', 0, 'img/NatGeo.jpg', 2),
+(20, 'No me conocen (REMIX)', 'BANDIDO, DUKI, REI, TIAGO PZK', 'No me conocen', '2021-06-16', 0, 'img/NoMeConocen (REMIX).jpg', 2),
+(21, 'Prende la Cámara', 'FMK, Tiago PZK', 'Prende la Cámara', '2021-07-01', 0, 'img/PrendeLaCámara.jpg', 2),
+(22, 'Rápido Lento', 'Emilia, Tiago PZK', 'Rápido Lento', '2021-09-30', 0, 'img/RápidoLento.jpg', 2),
+(26, 'M1 A1', 'Gorillaz', 'M1 A1', '2015-02-12', 0, 'img/gorillaz.jpg', 3),
+(27, 'Ruta 66', 'Pappo\'s Blues', 'Caso Cerrado', '1995-03-15', 0, 'img/papo.jpg', 3),
+(28, 'Balada Del Diablo y La Muerte', 'La Renga', 'Despedazado por mil partes', '1996-07-21', 0, 'img/LaRenga.jpg', 3),
+(29, 'Toxicity ', 'System Of A Down', 'System Of A Down', '2001-09-04', 0, 'img/SystemOfaDown.jpg', 3),
+(30, 'Crimen', 'Gustavo Cerati', 'Ahí Vamos', '2006-10-05', 0, 'img/cerati.jpg', 3),
+(31, 'JIJIJI', 'Los Redondos', 'Oktubre', '1986-10-18', 1, 'img/indioSolari.jpg', 3),
+(32, 'GALANG', 'Alika', 'EDUCATE YOURSELF', '2008-04-19', 0, 'img/alika.jpg', 4),
+(33, 'Te robaste mi corazon', 'Fidel Nadal', 'Forever together', '2010-10-10', 0, 'img/fidelNadal.jpg', 4),
+(34, 'International love ', 'Fidel Nadal', 'INTERNATIONAL LOVE\"', '2008-10-16', 0, 'img/fidelNadal.jpg', 4),
+(35, 'Somewhere over the Rainbow', 'Israel \"IZ\" Kamakawiwoʻole', 'Over the Rainbow', '2010-04-12', 1, 'img/OverTheRainbow.jpg', 4),
+(36, 'Is This Love', 'Bob Marley & The Wailers', 'Kaya', '1978-07-07', 0, 'img/BobMarley.jpg', 4),
+(37, 'Hoja en Blanco', 'Dread Mar I', '10 Años ', '2016-11-04', 0, 'img/DreadMarI.jpg', 4),
+(38, 'Tiempo', 'Rabeat & Underdann', 'Tiempo', '2016-10-13', 0, 'img/Rabeat.jpg', 4),
+(39, 'Un Nuevo Día', 'Zona Ganjah', 'Poder', '2010-06-10', 0, 'img/ZonaGanjah.jpg', 4),
+(40, 'Lose Yourself', 'Eminem', 'Lose Yourself', '2002-06-22', 0, 'img/eminem.jpg', 6),
+(41, 'Rap God', 'Eminem', 'Sencillo', '2013-10-13', 1, 'img/eminem.jpg', 6),
+(42, 'In Da Club', '50 Cent', 'In Da Club', '2009-06-09', 0, 'img/50Cent.jpg', 6),
+(43, 'Candy Shop', '50 Cent', 'Candy Shop', '2009-06-16', 0, 'img/50Cent.jpg', 6),
+(44, 'goosebumps', 'Travis Scott', 'Birds in the Trap Sing McKnight', '2017-04-14', 1, 'img/TravisScott.jpg', 6),
+(45, 'Black And Yellow', 'Wiz Khalifa', 'Black and Yellow (feat. Juicy J, Snoop Dogg & T-Pain)', '2011-01-07', 0, 'img/wizKhalifa.jpg', 6),
+(46, 'En Boca De Tantos', 'Porta', 'En Boca De Tantos', '2009-06-26', 0, 'img/porta.jpg', 6),
+(50, 'La Marca de La Gorra', 'Mala Fama', 'La Tonga', '2017-12-19', 1, 'a', 1);
 
 -- --------------------------------------------------------
 
@@ -151,13 +153,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `musica`
 --
 ALTER TABLE `musica`
-  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
