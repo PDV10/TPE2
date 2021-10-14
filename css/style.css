@@ -19,13 +19,22 @@ img.icono{
     width: 40px;
 }
 
+.contenedorTable{
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
 a h1.struchify{
     color: rgb(20, 200, 110);
     font-size: 30px;
     letter-spacing: 0.5px;
 }
 
-.contenedor{
+.contenedorHeader{
     margin: 10px;
     display: flex;
     justify-content: space-between;
