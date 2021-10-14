@@ -1,8 +1,10 @@
-<div class="container d-flex-colum">
-    <form action="addGenre" method="POST" class="d-flex" >
-        <input type="text" name="newGenre" class="form-control w-25 m-2" placeholder="Ingrese un nuevo genero">
-        <button type="submit" class="btn bg-info m-2 align-items-center ">Agregar</button>
-    </form>
+<div class="container d-flex-colum w-75">
+    <div class="container-fluid justify-content-center w-50 mt-4">
+        <form action="addGenre" method="POST" class="d-flex" >
+            <input type="text" name="newGenre" class="form-control w-75 m-2" placeholder="Ingrese un nuevo genero">
+            <button type="submit" class="btn bg-info m-2 align-items-center ">Agregar</button>
+        </form>
+    </div>
     <table class="table table-dark table-striped text-center">
         <thead>
             <tr>
