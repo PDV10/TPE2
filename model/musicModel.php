@@ -12,9 +12,19 @@
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
 
+        function getAllMusic(){
+            $query = $this->db->prepare(
+            'SELECT m.*,g.genero
+            FROM musica m
+            INNER JOIN generos g
+            ON m.id_genero_fk = g.id');
+            $query->execute([]);
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        }
+
         function musicForGenre($genre){
             $query = $this->db->prepare(
-           'SELECT m.*
+           'SELECT m.*,g.genero
             FROM musica m
             INNER JOIN generos g
             ON m.id_genero_fk = g.id
@@ -74,6 +84,24 @@
             $query->execute([$nombre,$artista,$album,$anio,$genre,$imagen,$id]);
         }
 
+        function filtrarAll($filtrado){
+            $query = $this->db->prepare(
+           'SELECT m.*, g.genero
+            FROM musica m
+            INNER JOIN generos g
+            ON m.id_genero_fk = g.id
+            WHERE m.nombreCancion LIKE ? || m.artista LIKE ? || m.album LIKE ? || m.anio LIKE ?');
+            $filtro = $query->execute([$filtrado . '%','%' . $filtrado . '%','%' . $filtrado . '%','%' . $filtrado .'%']);
+
+            if($filtro){
+                return $query->fetchAll(PDO::FETCH_OBJ);
+            }else{
+                return false;
+            }
+        }
+
+
+
         function filtrar($genero, $filtrado){
             $query = $this->db->prepare(
            'SELECT m.*, g.genero
@@ -81,7 +109,7 @@
             INNER JOIN generos g
             ON m.id_genero_fk = g.id
             WHERE g.id = ? && (m.nombreCancion LIKE ? || m.artista LIKE ? || m.album LIKE ? || m.anio LIKE ?)');
-            $filtro = $query->execute([$genero,$filtrado.'%',$filtrado.'%',$filtrado.'%',$filtrado.'%']);
+            $filtro = $query->execute([$genero, $filtrado . '%','%' . $filtrado . '%','%' . $filtrado . '%','%' . $filtrado .'%']);
 
             if($filtro){
                 return $query->fetchAll(PDO::FETCH_OBJ);

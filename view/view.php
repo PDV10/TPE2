@@ -17,6 +17,7 @@ class view{
         $this->smarty->assign("genres", $genre);
         $this->smarty->assign("id", $id);
         $this->smarty->assign("musicForGenre", $musicForGenre);
+        // $this->smarty->assign("AllMusic", $AllMusic);
         $this->smarty->display("templates/showTable.tpl");
     }
 

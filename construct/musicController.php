@@ -22,7 +22,12 @@
         }
 
         function showGenreMusic($genre, $filtro=NULL){
-            if(isset($genre) && isset($filtro)){
+            if(isset($genre) && isset($filtro) && $genre == 7){
+                $musicForGenre = $this->model->filtrarAll($filtro);
+            }elseif($genre == 7){
+                $musicForGenre = $this->model->getAllMusic();
+            
+            }elseif(isset($genre) && isset($filtro)){
                 $musicForGenre = $this->model->filtrar($genre, $filtro);
             }else{
                 $musicForGenre = $this->model->musicForGenre($genre);
@@ -51,22 +56,23 @@
         }
 
         function updateMusic(){
-            $nombre = $_REQUEST['nombre'];
-            $artista = $_REQUEST['artista'];
-            $album = $_REQUEST['album'];
-            $anio = $_REQUEST['anio'];
-            $genre = $_REQUEST['genre'];
-            $imagen = $_REQUEST['imagen'];
-            $id = $_REQUEST['id'];
-
-            if($genre == "cumbia" || $genre == "trap" || $genre == "reggae" || $genre == "rap" || $genre == "hip hop"){
-                $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id);
+            if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && isset($_REQUEST['album']) && !empty($_REQUEST['album']) && isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) && isset($_REQUEST['genre']) && $_REQUEST['genre']!="false" && isset($_REQUEST['imagen']) && !empty($_REQUEST['imagen']) && isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
+                $nombre = $_REQUEST['nombre'];
+                $artista = $_REQUEST['artista'];
+                $album = $_REQUEST['album'];
+                $anio = $_REQUEST['anio'];
+                $genre = $_REQUEST['genre'];
+                $imagen = $_REQUEST['imagen'];
+                $id = $_REQUEST['id'];
+                if($genre != "false"){
+                    $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id); 
+                    header("Location:". TABLA .$genre);
+                }
             }else{
-                $genre = 1;
-                header("Location:". TABLA .$genre);
+                $this->view->showError('*No se seleccionó ningun genero*');
             }
             
-            header("Location:". TABLA .$genre);
+           
         }
 
         function getAllGenre(){

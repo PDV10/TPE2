@@ -13,21 +13,24 @@
         {/if}
     </div>
     <div class="container mt-4" id="global">
+
         <table class="table table-dark table-striped text-center">
             <thead>
                 <tr>
                     <th>nombre</th>
                     <th>artista</th>
                     <th>album</th>
+                    <th>genero</th>
                     <th>acciones</th>
                 </tr>
             </thead>
             <tbody>
                     {foreach from=$musicForGenre item=$music}
                         <tr class="fila">
-                            <td class="table-dark ">{$music->nombreCancion}</td>
-                            <td class="table-dark ">{$music->artista}</td>
-                            <td class="table-dark ">{$music->album}</td>
+                            <td class="table-dark ">{$music->nombreCancion|truncate:20}</td>
+                            <td class="table-dark ">{$music->artista|truncate:20}</td>
+                            <td class="table-dark ">{$music->album|truncate:20}</td>
+                            <td class="table-dark ">{$music->genero}</td>
                             <td class="table-dark w-25 ps-3">
                             {if isset($smarty.session.USER_ID)}
                                 <a href="addFav/{$music->id_musica}" class="me-2 corazon">💜</a><a href="delete/{$music->id_musica}" class="btn bg-danger me-2">X</a><a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
