@@ -85,8 +85,8 @@
         }
 
         function filtro(){
-            $id = $_REQUEST['id'];
-            $filtro = $_REQUEST['filtro'];
+            $id = $_POST['id'];
+            $filtro = $_POST['filtro'];
             $this->showGenreMusic($id,$filtro);
         }
 

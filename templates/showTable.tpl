@@ -1,17 +1,7 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
 {include file="templates/showModal.tpl"}
-
-    <div class="container-fluid justify-content-center w-50 mt-4 d-flex">
-        <form action="filtro" class="d-flex w-50">
-            <input type="hidden" name="id" value="{$id}">
-            <input class="form-control me-2" name="filtro" type="search" placeholder="Search">
-            <button type="submit" class="btn btn-secondary" >Buscar</button>
-        </form>
-        {if isset($smarty.session.USER_ID)}
-            <a href="showFormAddSong" class="btn btn-secondary ms-1" >Agregar</a>
-        {/if}
-    </div>
+{include file="templates/formFiltro.tpl"}
     <div class="container mt-4" id="global">
 
         <table class="table table-dark table-striped text-center">
@@ -31,9 +21,11 @@
                             <td class="table-dark ">{$music->artista|truncate:20}</td>
                             <td class="table-dark ">{$music->album|truncate:20}</td>
                             <td class="table-dark ">{$music->genero}</td>
-                            <td class="table-dark w-25 ps-3">
+                            <td class="table-dark w-100 ps-3 d-flex justify-content-space-between tdForm">
                             {if isset($smarty.session.USER_ID)}
-                                <a href="addFav/{$music->id_musica}" class="me-2 corazon">💜</a><a href="delete/{$music->id_musica}" class="btn bg-danger me-2">X</a><a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
+                                <a href="addFav/{$music->id_musica}" class="corazon">💜</a>
+                                <a href="delete/{$music->id_musica}" class="btn bg-danger">X</a>
+                                <a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
                             {/if}
                                 <a href="verMas/{$music->id_musica}" class="btn btn-primary">Ver mas</a>
                             </td>

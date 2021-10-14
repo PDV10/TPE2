@@ -48,6 +48,13 @@ a h1.struchify{
     list-style: none;
 }
 
+.tdForm{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
 .items-nav a{
     position: relative;
     text-align: center;
@@ -89,10 +96,12 @@ a h1.struchify{
     font-size: 25px;
     width: 50px;
     height: 30px;
+    margin: 2px;
 }
 
 .corazon:hover{
     font-size: 26px;
+    margin: 0;
 }
 
 #global {
@@ -146,4 +155,9 @@ input.formulario:invalid {
     font-size: 25px;
     font-family: 'fangsong' , 'monospace', Calibri, 'Trebuchet MS', sans-serif;
     border-bottom: 2px solid aquamarine;
+}
+
+.copyLeft{
+    display:inline-block;
+    transform: rotate(180deg);
 }
