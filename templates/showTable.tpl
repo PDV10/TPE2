@@ -17,11 +17,11 @@
             <tbody>
                     {foreach from=$musicForGenre item=$music}
                         <tr class="fila">
-                            <td class="table-dark ">{$music->nombreCancion|truncate:20}</td>
-                            <td class="table-dark ">{$music->artista|truncate:20}</td>
-                            <td class="table-dark ">{$music->album|truncate:20}</td>
-                            <td class="table-dark ">{$music->genero}</td>
-                            <td class="table-dark d-flex justify-content-center">
+                            <td class="table-dark tdForm">{$music->nombreCancion|truncate:20}</td>
+                            <td class="table-dark tdForm">{$music->artista|truncate:20}</td>
+                            <td class="table-dark tdForm">{$music->album|truncate:20}</td>
+                            <td class="table-dark tdForm">{$music->genero}</td>
+                            <td class="table-dark d-flex justify-content-between tdForm">
                                 <div class="w-75 p-3 d-flex justify-content-around">
                                 {if isset($smarty.session.USER_ID)}
                                     
