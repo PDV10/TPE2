@@ -26,6 +26,7 @@
     <div class="mb-3">
         <label class="form-label">Genero de la cancion</label>
         <select name="genre" class="form-select">
+            <option disabled selected value>Seleccione Genero</option>
             {foreach from=$genres item=$genre}
                 <option value="{$genre->id}">{$genre->genero}</option>
             {/foreach}
