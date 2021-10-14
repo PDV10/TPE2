@@ -6,12 +6,6 @@
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_musica_tpe;charset=utf8', 'root', '');
         }
         
-        function getAllGenre(){
-            $query = $this->db->prepare('SELECT * FROM generos');
-            $query->execute([]);
-            return $query->fetchAll(PDO::FETCH_OBJ);
-        }
-
         function getAllMusic(){
             $query = $this->db->prepare(
             'SELECT m.*,g.genero
@@ -32,6 +26,7 @@
             $query->execute([$genre]);
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
+
         function delete($id){
             $query = $this->db->prepare(
            'DELETE m.*
@@ -100,8 +95,6 @@
             }
         }
 
-
-
         function filtrar($genero, $filtrado){
             $query = $this->db->prepare(
            'SELECT m.*, g.genero
@@ -122,7 +115,8 @@
             $query = $this->db->prepare(
             'INSERT INTO musica (`nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`,`imagen`)
              VALUES (?,?,?,?,?,?)');
-            $addSong = $query->execute([$nombreCancion,$artista,$album,$anio,$genero,$imagen]);
+            $query->execute([$nombreCancion,$artista,$album,$anio,$genero,$imagen]);
+            $addSong = $this->db->lastInsertId();
 
             if($addSong){
                 return true;

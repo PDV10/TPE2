@@ -5,7 +5,8 @@
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
     define('TABLA', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'categories/');
-     
+    define('GENRE_TABLE', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'AdministrarGeneros/');
+      
     if(!empty($_REQUEST['action'])){
         $action = $_REQUEST['action'];
     }else{
@@ -53,5 +54,18 @@
             $musicController->ShowModalseeMore($params[1]);
             break;
         case 'AdministrarGeneros':
-
+            $genreController->showTableGenre();
+            break;
+        case 'addGenre':
+            $genreController->addNewGenre();
+            break;
+        case 'deleteGenre':
+            $genreController->deleteGenre($params[1]);
+            break;
+        case 'RenderUpdateGenre':
+            $genreController->RenderUpdateGenre($params[1]);
+            break;
+        case 'updateGenre':
+            $genreController->updateGenre();
+            break;
     }

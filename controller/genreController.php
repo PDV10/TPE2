@@ -15,6 +15,43 @@
             $this->authHelper = new AuthHelper();
         }
 
-        
+        function showTableGenre(){
+            $genres = $this->model->getAllGenre();
+            $this->view->showTableGenre($genres);
+        }
 
+        function addNewGenre(){
+            if(isset($_REQUEST['newGenre']) && !empty($_REQUEST['newGenre'])){
+                $genre = $_REQUEST['newGenre'];
+                
+                $this->model->addNewGenre($genre);
+            }
+            header("Location:". GENRE_TABLE);
+        }
+
+        function deleteGenre($id){
+            $cant = $this->model->validarGenre($id);
+            if(empty($cant->cant)){
+                $this->model->deleteGenre($id);
+                header("Location:". GENRE_TABLE);
+            }
+        }
+
+        function RenderUpdateGenre($id){
+            $genre = $this->model->getOneGenre($id);
+            $this->view->RenderUpdateGenre($genre);
+        }
+
+        function updateGenre(){
+            if(isset($_REQUEST['newGenre']) && !empty($_REQUEST['newGenre'])){
+                $id = $_REQUEST['id'];
+                $genre = $_REQUEST['newGenre'];
+                $itsUpdate = $this->model->updateGenre($id,$genre);
+
+                if($itsUpdate){
+                    header("Location:". GENRE_TABLE);
+                }
+            }
+            
+        }
     }

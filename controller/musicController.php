@@ -1,23 +1,29 @@
-<?php
+<?php 
+    /* internos */
     require_once('model/musicModel.php');
     require_once('view/musicView.php');
-    require_once ('helpers/auth.helper.php');
+    /* helper */
+    require_once('helpers/auth.helper.php');
+    /* externos */
+    require_once('model/genreModel.php');
 
     class musicController{
         private $view;
         private $model;
+        private $genreModel;
         private $authHelper;
         private $genres;
 
         function __construct(){
             $this->view = new musicView();
             $this->model = new musicModel();
+            $this->genreModel = new genreModel();
             $this->authHelper = new AuthHelper();
-            $this->genres = $this->getAllGenre();
+            $this->genres = $this->genreModel->getAllGenre();
         }
 
         function showView(){
-            $genre = $this->getAllGenre();
+            $genre = $this->genreModel->getAllGenre();
             $this->view->showHome($genre);
         }
 
@@ -51,7 +57,7 @@
                 $anio = $data->anio;
                 $imagen = $data->imagen;
             }
-            $genres = $this->getAllGenre();
+            $genres = $this->genreModel->getAllGenre();
             $this->view->musicUpdate($nombre,$artista,$album,$anio,$genres,$imagen,$id);
         }
 
@@ -71,12 +77,10 @@
             }else{
                 $this->view->showError('*No se seleccionó ningun genero*');
             }
-            
-           
         }
 
         function getAllGenre(){
-            $genre = $this->model->getAllGenre();
+            $genre = $this->genreModel->getAllGenre();
             return $genre;
         }
 

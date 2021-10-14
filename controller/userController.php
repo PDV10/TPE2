@@ -1,6 +1,6 @@
 <?php
     require_once('model/userModel.php');
-    require_once('view/view.php');
+    require_once('view/musicView.php');
     require_once 'helpers/auth.helper.php';
 
     class userController{
@@ -10,7 +10,7 @@
 
         function __construct(){
             $this->userModel=new userModel();
-            $this->view=new view();
+            $this->view=new MusicView();
             $this->authHelper = new AuthHelper();
         }
 
