@@ -3,19 +3,24 @@
      require_once('view/favoriteView.php');
      require_once('view/musicView.php');
      require_once('model/musicModel.php');
+     require_once('model/genreModel.php');
      require_once ('helpers/auth.helper.php');
 
 class favoriteController{
 
     private $favoriteView;
     private $favoriteModel;
+    private $genreModel;
+    private $musicView;
     private $musicModel;
     private $authHelper;
 
     function __construct(){
         $this->favoriteView = new favoriteView();
         $this->favoriteModel = new favoriteModel();
+        $this->genreModel = new genreModel();
         $this->musicModel = new musicModel();
+        $this->musicView = new musicView();
         $this->authHelper = new AuthHelper();
     }
 
@@ -44,7 +49,19 @@ class favoriteController{
         }else{
             header("Location:".TABLA . $id_genero);
         }
-        
+    }
+
+    function showTableFav(){
+        $fav = 1;
+        $favsSongs = $this->favoriteModel->getAllSongsFavs($fav);
+        $genres = $this->genreModel->getAllGenre();
+
+        if($favsSongs){
+            $this->favoriteView->showTableFavs($favsSongs, $genres);
+        }else{
+            $this->musicView->showError("No hay ninguna cancion agregada en Favoritos");
+        }
+
     }
 
 

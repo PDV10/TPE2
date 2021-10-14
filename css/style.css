@@ -98,8 +98,16 @@ a h1.struchify{
     border: none;
 }
 
+li a .favoritos{
+    font-size: 40px;
+}
+
 .corazon:hover{
     font-size: 30px;
+}
+
+.favoritos{
+    font-family: '-webkit-pictograph', cursive, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #global {

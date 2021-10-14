@@ -116,7 +116,7 @@
             }
         }
         
-        function ShowModalseeMore($id){
+        function showModalseeMore($id){
             $infoMusic = $this->model->getDatesOfMusic($id);
             foreach ($infoMusic as $info) {
                 $cancion = $info->nombreCancion;

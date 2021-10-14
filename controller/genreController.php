@@ -42,7 +42,7 @@
             }
         }
 
-        function RenderUpdateGenre($id){
+        function renderUpdateGenre($id){
             $genre = $this->model->getOneGenre($id);
             $this->view->RenderUpdateGenre($genre);
         }

@@ -26,7 +26,7 @@
                             <td class="table-dark d-flex justify-content-between tdForm">
                                 <div class="w-75 p-3 d-flex justify-content-around">
                                 {if isset($smarty.session.USER_ID)}
-                                    <form action="addFav" method="POST">
+                                    <form action="changeValueFav" method="POST">
                                         {if isset($genero)}
                                             <input type="hidden" name="genero" value="{$genero}">
                                         {/if} 

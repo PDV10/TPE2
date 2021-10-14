@@ -49,14 +49,17 @@
         case 'showFormAddSong':
             $musicController->showFormAddSong();
             break;
-        case 'addFav':
+        case 'changeValueFav':
             $favoriteController->changeValueFav();
+            break;
+        case 'favorites':
+            $favoriteController->showTableFav();
             break;
         case 'addSong':
             $musicController->addSong();
             break;
         case 'verMas':
-            $musicController->ShowModalseeMore($params[1]);
+            $musicController->showModalseeMore($params[1]);
             break;
         case 'AdministrarGeneros':
             $genreController->showTableGenre();
@@ -68,7 +71,7 @@
             $genreController->deleteGenre($params[1]);
             break;
         case 'RenderUpdateGenre':
-            $genreController->RenderUpdateGenre($params[1]);
+            $genreController->renderUpdateGenre($params[1]);
             break;
         case 'updateGenre':
             $genreController->updateGenre();
