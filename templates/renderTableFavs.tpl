@@ -3,7 +3,7 @@
 <div class="container mt-4" id="global">
     
     <table class="table table-dark table-striped text-center">
-        <thead>
+        <thead class="position-sticky top-0">
             <tr>
                 <th>nombre</th>
                 <th>artista</th>
@@ -15,11 +15,11 @@
         <tbody>
                 {foreach from=$songs item=$music}
                         <tr class="fila">
-                        <td class="table-dark tdForm">{$music->nombreCancion|truncate:20}</td>
-                        <td class="table-dark tdForm">{$music->artista|truncate:20}</td>
-                        <td class="table-dark tdForm">{$music->album|truncate:20}</td>
+                        <td class="table-dark tdForm">{$music->nombreCancion|truncate:15}</td>
+                        <td class="table-dark tdForm">{$music->artista|truncate:15}</td>
+                        <td class="table-dark tdForm">{$music->album|truncate:15}</td>
                         <td class="table-dark tdForm">{$music->genero}</td>
-                        <td class="table-dark d-flex justify-content-between tdForm">
+                        <td class="table-dark d-flex justify-content-center tdForm">
                             <div class="w-75 p-3 d-flex justify-content-around">
                             {if isset($smarty.session.USER_ID)}
                                 <form action="changeValueFav" method="POST">

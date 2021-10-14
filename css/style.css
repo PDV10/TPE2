@@ -6,6 +6,10 @@ a{
     text-decoration: none;
 }
 
+.tamaño{
+    width: 40%;
+}
+
 .titulo{
     color: wheat;
 }
@@ -15,9 +19,13 @@ a{
     flex-direction: row;
     align-items: center;
 }
-img.icono{
+.icono{
     width: 40px;
 }
+
+/* .logo{
+    transform: rotate(180deg);
+} */
 
 .contenedorTable{
     display: flex;
