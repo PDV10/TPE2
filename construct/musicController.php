@@ -59,9 +59,13 @@
             $imagen = $_REQUEST['imagen'];
             $id = $_REQUEST['id'];
 
-            $getOneSong = $this->model->getOneSong($id);
-            $id_genero = $getOneSong->id;
-            $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id);
+            if($genre == "cumbia" || $genre == "trap" || $genre == "reggae" || $genre == "rap" || $genre == "hip hop"){
+                $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id);
+            }else{
+                $genre = 1;
+                header("Location:". TABLA .$genre);
+            }
+            
             header("Location:". TABLA .$genre);
         }
 
