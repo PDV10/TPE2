@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2021 a las 01:26:23
+-- Tiempo de generación: 14-10-2021 a las 02:36:21
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -42,8 +42,7 @@ INSERT INTO `generos` (`id`, `genero`) VALUES
 (3, 'rock'),
 (4, 'reggae'),
 (6, 'rap'),
-(7, 'hip hop'),
-(8, 'cachengue');
+(7, 'hip hop');
 
 -- --------------------------------------------------------
 
@@ -67,7 +66,7 @@ CREATE TABLE `musica` (
 
 INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, `imagen`, `id_genero_fk`) VALUES
 (10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 'img/NuncaQuise.jpg', 2),
-(11, 'Fresco', 'WOS', 'Carabana', '2019-10-04', '', 6),
+(11, 'Fresco', 'WOS', 'Carabana', '2019-10-04', 'img/fresco.jpg', 6),
 (12, 'Llenos de magia', 'La Vela Puerca', 'A contra luz', '2016-07-08', 'img/llenosDeMagia.jpg', 3),
 (13, 'Viejo Karma!', 'Las Pastillas Del Abuelo', 'Desafios', '2017-11-12', 'img/ViejoKarma.jpg', 3),
 (14, 'Demaciado Loco', 'Paulo Londra', 'Home Run', '2019-05-23', 'img/DemaciadoLoco.jpg', 2),
@@ -79,7 +78,27 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 (20, 'No me conocen (REMIX)', 'BANDIDO, DUKI, REI, TIAGO PZK', 'No me conocen', '2021-06-16', 'img/NoMeConocen (REMIX).jpg', 2),
 (21, 'Prende la Cámara', 'FMK, Tiago PZK', 'Prende la Cámara', '2021-07-01', 'img/PrendeLaCámara.jpg', 2),
 (22, 'Rápido Lento', 'Emilia, Tiago PZK', 'Rápido Lento', '2021-09-30', 'img/RápidoLento.jpg', 2),
-(26, 'M1 A1', 'Gorillaz', 'M1 A1', '2015-02-12', 'img/gorillaz.jpg', 3);
+(26, 'M1 A1', 'Gorillaz', 'M1 A1', '2015-02-12', 'img/gorillaz.jpg', 3),
+(27, 'Ruta 66', 'Pappo\'s Blues', 'Caso Cerrado', '1995-03-15', 'img/papo.jpg', 3),
+(28, 'Balada Del Diablo y La Muerte', 'La Renga', 'Despedazado por mil partes', '1996-07-21', 'img/LaRenga.jpg', 3),
+(29, 'Toxicity ', 'System Of A Down', 'System Of A Down', '2001-09-04', 'img/SystemOfaDown.jpg', 3),
+(30, 'Crimen', 'Gustavo Cerati', 'Ahí Vamos', '2006-10-05', 'img/cerati.jpg', 3),
+(31, 'JIJIJI', 'Los Redondos', 'Oktubre', '1986-10-18', 'img/indioSolari.jpg', 3),
+(32, 'GALANG', 'Alika', 'EDUCATE YOURSELF', '2008-04-19', 'img/alika.jpg', 4),
+(33, 'Te robaste mi corazon', 'Fidel Nadal', 'Forever together', '2010-10-10', 'img/fidelNadal.jpg', 4),
+(34, 'International love ', 'Fidel Nadal', 'INTERNATIONAL LOVE\"', '2008-10-16', 'img/fidelNadal.jpg', 4),
+(35, 'Somewhere over the Rainbow', 'Israel \"IZ\" Kamakawiwoʻole', 'Over the Rainbow', '2010-04-12', 'img/OverTheRainbow.jpg', 4),
+(36, 'Is This Love', 'Bob Marley & The Wailers', 'Kaya', '1978-07-07', 'img/BobMarley.jpg', 4),
+(37, 'Hoja en Blanco', 'Dread Mar I', '10 Años ', '2016-11-04', 'img/DreadMarI.jpg', 4),
+(38, 'Tiempo', 'Rabeat & Underdann', 'Tiempo', '2016-10-13', 'img/Rabeat.jpg', 4),
+(39, 'Un Nuevo Día', 'Zona Ganjah', 'Poder', '2010-06-10', 'img/ZonaGanjah.jpg', 4),
+(40, 'Lose Yourself', 'Eminem', 'Lose Yourself', '2002-06-22', 'img/eminem.jpg', 6),
+(41, 'Rap God', 'Eminem', 'Sencillo', '2013-10-13', 'img/eminem.jpg', 6),
+(42, 'In Da Club', '50 Cent', 'In Da Club', '2009-06-09', 'img/50Cent.jpg', 6),
+(43, 'Candy Shop', '50 Cent', 'Candy Shop', '2009-06-16', 'img/50Cent.jpg', 6),
+(44, 'goosebumps', 'Travis Scott', 'Birds in the Trap Sing McKnight', '2017-04-14', 'img/TravisScott.jpg', 6),
+(45, 'Black And Yellow', 'Wiz Khalifa', 'Black and Yellow (feat. Juicy J, Snoop Dogg & T-Pain)', '2011-01-07', 'img/wizKhalifa.jpg', 6),
+(46, 'En Boca De Tantos', 'Porta', 'En Boca De Tantos', '2009-06-26', 'img/porta.jpg', 6);
 
 -- --------------------------------------------------------
 
@@ -138,7 +157,7 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT de la tabla `musica`
 --
 ALTER TABLE `musica`
-  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
