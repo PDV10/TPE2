@@ -30,6 +30,8 @@
                 } else {
                     $this->view->showLogin("Usuario o contraseña inválida");
                 }
+            }else{
+                header("Location: " . BASE_URL);
             }
         }
 

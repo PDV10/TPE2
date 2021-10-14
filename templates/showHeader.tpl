@@ -13,7 +13,7 @@
     <body>
     <div class="contenedorHeader">
         <div class="logopag">
-            <a href="home"><img src="img/logo2.png" alt="imagen del logo" class="icono"></a> <!-- No toma ninguna clase en el css (-_-#) -->
+            <a href="home"><img src="img/logo2.png" alt="imagen del logo" class="icono"></a>
             <a href="home"><h1 class="struchify">StruchiFy</h1></a> 
         </div>
         
