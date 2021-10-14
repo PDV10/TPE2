@@ -21,13 +21,15 @@
                             <td class="table-dark ">{$music->artista|truncate:20}</td>
                             <td class="table-dark ">{$music->album|truncate:20}</td>
                             <td class="table-dark ">{$music->genero}</td>
-                            <td class="table-dark w-100 ps-3 d-flex justify-content-space-between tdForm">
+                            <td class="table-dark w-100 ps-3 d-flex justify-content-space-between">
                             {if isset($smarty.session.USER_ID)}
                                 <a href="addFav/{$music->id_musica}" class="corazon">💜</a>
-                                <a href="delete/{$music->id_musica}" class="btn bg-danger">X</a>
-                                <a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
+                                <div>
+                                    <a href="delete/{$music->id_musica}" class="btn bg-danger">X</a>
+                                    <a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
                             {/if}
-                                <a href="verMas/{$music->id_musica}" class="btn btn-primary">Ver mas</a>
+                                    <a href="verMas/{$music->id_musica}" class="btn btn-primary">Ver mas</a>
+                                </div>
                             </td>
                         </tr>
                     {/foreach}
