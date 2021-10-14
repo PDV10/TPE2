@@ -32,13 +32,13 @@
                 $musicForGenre = $this->model->filtrarAll($filtro);
             }elseif($genre == 7){
                 $musicForGenre = $this->model->getAllMusic();
-            
+                $tablaTodos = 7;
             }elseif(isset($genre) && isset($filtro)){
                 $musicForGenre = $this->model->filtrar($genre, $filtro);
             }else{
                 $musicForGenre = $this->model->musicForGenre($genre);
             }
-           $this->view->showTable($musicForGenre,$this->genres, $genre);
+           $this->view->showTable($musicForGenre,$this->genres,$genre,$tablaTodos=NULL);
         }
 
         function delete($id){
@@ -126,4 +126,5 @@
                 $this->view->showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero);
             }
         }
+
     }

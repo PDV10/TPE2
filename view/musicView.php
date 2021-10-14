@@ -13,11 +13,11 @@ class musicView{
         $this->smarty->display("templates/showHome.tpl");
     }
 
-    function showTable($musicForGenre,$genre, $id){
+    function showTable($musicForGenre,$genre, $id, $tablaTodos){
         $this->smarty->assign("genres", $genre);
         $this->smarty->assign("id", $id);
+        $this->smarty->assign("genero", $tablaTodos);
         $this->smarty->assign("musicForGenre", $musicForGenre);
-        // $this->smarty->assign("AllMusic", $AllMusic);
         $this->smarty->display("templates/showTable.tpl");
     }
 

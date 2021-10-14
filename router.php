@@ -2,6 +2,7 @@
     require_once('controller/musicController.php');
     require_once('controller/userController.php');
     require_once('controller/genreController.php');
+    require_once('controller/favoriteController.php');
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
     define('TABLA', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'categories/');
@@ -17,6 +18,7 @@
 
     $musicController = new musicController();
     $userController = new userController();
+    $favoriteController = new favoriteController();
     $genreController = new genreController();
 
     switch ($params[0]) {
@@ -46,6 +48,9 @@
             break;
         case 'showFormAddSong':
             $musicController->showFormAddSong();
+            break;
+        case 'addFav':
+            $favoriteController->changeValueFav();
             break;
         case 'addSong':
             $musicController->addSong();

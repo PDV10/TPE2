@@ -24,11 +24,19 @@
                             <td class="table-dark d-flex justify-content-between tdForm">
                                 <div class="w-75 p-3 d-flex justify-content-around">
                                 {if isset($smarty.session.USER_ID)}
-                                    
-                                        <a href="addFav/{$music->id_musica}" class="corazon">💜</a>
+                                <form action="addfav" method="POST">
+                                     {if $music->favorito == 0} 
+                                                <input type="hidden" name="id_genero" value="{$genero}">
+                                                <input type="hidden" name="id_musica" value="{$music->id_musica}">
+                                                <button name="button" class="corazon">💜</button>
+                                        {else}
+                                                <input type="hidden" name="id_genero" value="{$genero}">
+                                                <input type="hidden" name="id_musica" value="{$music->id_musica}">
+                                                <button name="button" class="corazon">💚</button>
+                                     {/if}
+                                </form>
                                         <a href="delete/{$music->id_musica}" class="btn bg-danger">X</a>
                                         <a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
-                                    
                                 {/if}
                                     <a href="verMas/{$music->id_musica}" class="btn btn-primary">Ver mas</a>
                                 </div>
