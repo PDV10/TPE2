@@ -1,7 +1,7 @@
 <?php
-    require_once('libs\lib\smarty-3.1.39\libs\Smarty.class.php');
+    require_once('libs/lib/smarty-3.1.39/libs/Smarty.class.php');
     
-class view{
+class musicView{
     private $smarty;
 
     function __construct(){

@@ -16,8 +16,11 @@
             <a href="home"><h1 class="struchify">StruchiFy</h1></a> 
         </div>
         
-        {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
-            <a class="btn btn-secondary" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
+        {if isset($smarty.session.USER_ID)} 
+            <div class="a">
+                <a href="AdministrarGeneros" class="btn btn-secondary">Administrar Generos</a>
+                <a class="btn btn-secondary" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
+            </div>
         {else}
             <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">login</button>
         {/if}

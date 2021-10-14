@@ -1,6 +1,6 @@
 <?php
     require_once('model/musicModel.php');
-    require_once('view/view.php');
+    require_once('view/musicView.php');
     require_once ('helpers/auth.helper.php');
 
     class musicController{
@@ -10,7 +10,7 @@
         private $genres;
 
         function __construct(){
-            $this->view = new view();
+            $this->view = new musicView();
             $this->model = new musicModel();
             $this->authHelper = new AuthHelper();
             $this->genres = $this->getAllGenre();
@@ -91,24 +91,19 @@
         }
 
         function addSong(){
+            if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && isset($_REQUEST['album']) && !empty($_REQUEST['album']) && isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) && isset($_REQUEST['genre']) && $_REQUEST['genre']!="false" && isset($_REQUEST['imagen']) && !empty($_REQUEST['imagen'])) {
+                
             $nombreCancion = $_REQUEST['nombre'];
             $artista = $_REQUEST['artista'];
             $album = $_REQUEST['album'];
             $anio = $_REQUEST['anio'];
             $genero = $_REQUEST['genre'];
             $imagen = $_REQUEST['imagen'];
-            // if ($nombreCancion == '' || $artista == '' || $album == '') {
-
-            //     $this->view->showFormAddSong($this->genres);
-
-            //     $this->view->showError('*Tiene que completar todos los campos*');
-
-            // }else{
                 $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen);  
                 if($songAdd){
                     header("Location:". TABLA . $genero);
                 }
-            // }
+            }
         }
         
         function ShowModalseeMore($id){

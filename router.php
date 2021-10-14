@@ -1,6 +1,7 @@
 <?php
-    require_once('construct/musicController.php');
-    require_once('construct/userController.php');
+    require_once('controller/musicController.php');
+    require_once('controller/userController.php');
+    require_once('controller/genreController.php');
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
     define('TABLA', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'categories/');
@@ -15,6 +16,7 @@
 
     $musicController = new musicController();
     $userController = new userController();
+    $genreController = new genreController();
 
     switch ($params[0]) {
         case 'home':
@@ -50,4 +52,6 @@
         case 'verMas':
             $musicController->ShowModalseeMore($params[1]);
             break;
+        case 'AdministrarGeneros':
+
     }
