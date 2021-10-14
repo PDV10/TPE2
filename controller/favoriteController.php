@@ -20,20 +20,18 @@ class favoriteController{
     }
 
     function changeValueFav(){
-        if(isset($_POST['id_musica']) && isset($_POST['id_genero'])){
-            $id = $_POST['id_musica'];
-            $id_genero = $_POST['id_genero'];
-        }
         
+            $id = $_REQUEST['musica'];
+            $id_genero = $_REQUEST['genero'];
+
         $datesOfMusicId = $this->musicModel->getDatesOfMusic($id);
         foreach ($datesOfMusicId as $date) {
             $genero = $date->id_genero_fk;
             $favorito = $date->favorito;
         }
 
-        
         if ($favorito == 0) {
-            $fav = 1; 
+            $fav = 7; 
             $this->favoriteModel->changeValueFav($id,$fav);
         }else{
             $fav = 0;
@@ -41,9 +39,9 @@ class favoriteController{
         }
         
         if($id_genero != 7){
-            header("Location:".TABLA . $id_genero);
+            header("Location:".TABLA . $genero);
         }else{
-            header("Location:".TABLA . $id_genero);
+            header("Location:".TABLA . 7);
         }
         
     }
