@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2021 a las 02:36:21
+-- Tiempo de generación: 14-10-2021 a las 09:50:59
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -42,7 +42,7 @@ INSERT INTO `generos` (`id`, `genero`) VALUES
 (3, 'rock'),
 (4, 'reggae'),
 (6, 'rap'),
-(7, 'hip hop');
+(7, 'todos');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `musica` (
 --
 
 INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, `imagen`, `id_genero_fk`) VALUES
-(10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 'img/NuncaQuise.jpg', 2),
+(10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 'img/NuncaQuise.jpg', 3),
 (11, 'Fresco', 'WOS', 'Carabana', '2019-10-04', 'img/fresco.jpg', 6),
 (12, 'Llenos de magia', 'La Vela Puerca', 'A contra luz', '2016-07-08', 'img/llenosDeMagia.jpg', 3),
 (13, 'Viejo Karma!', 'Las Pastillas Del Abuelo', 'Desafios', '2017-11-12', 'img/ViejoKarma.jpg', 3),
@@ -151,13 +151,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `musica`
 --
 ALTER TABLE `musica`
-  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
