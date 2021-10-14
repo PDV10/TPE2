@@ -5,12 +5,14 @@
 
     class genreController{
         private $view; 
+        private $musicView;
         private $model; 
         private $genre; 
         private $authHelper;
 
         function __construct(){
             $this->view = new genreView();
+            $this->musicView = new musicView();
             $this->model = new genreModel();
             $this->authHelper = new AuthHelper();
         }
@@ -34,6 +36,8 @@
             if(empty($cant->cant)){
                 $this->model->deleteGenre($id);
                 header("Location:". GENRE_TABLE);
+            }else{
+                $this->musicView->showError("no se puede elimar la tabla debido a que tiene elementos asosiados");
             }
         }
 
