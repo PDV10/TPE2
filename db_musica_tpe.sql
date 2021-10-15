@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2021 a las 00:40:59
+-- Tiempo de generación: 15-10-2021 a las 04:21:20
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -87,7 +87,7 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 (31, 'JIJIJI', 'Los Redondos', 'Oktubre', '1986-10-18', 1, 'img/indioSolari.jpg', 3),
 (32, 'GALANG', 'Alika', 'EDUCATE YOURSELF', '2008-04-19', 0, 'img/alika.jpg', 4),
 (33, 'Te robaste mi corazon', 'Fidel Nadal', 'Forever together', '2010-10-10', 0, 'img/fidelNadal.jpg', 4),
-(34, 'International love ', 'Fidel Nadal', 'INTERNATIONAL LOVE\"', '2008-10-16', 0, 'img/fidelNadal.jpg', 4),
+(34, 'International love ', 'Fidel Nadal', 'INTERNATIONAL LOVE\"', '2008-10-16', 1, 'img/fidelNadal.jpg', 4),
 (35, 'Somewhere over the Rainbow', 'Israel \"IZ\" Kamakawiwoʻole', 'Over the Rainbow', '2010-04-12', 1, 'img/OverTheRainbow.jpg', 4),
 (36, 'Is This Love', 'Bob Marley & The Wailers', 'Kaya', '1978-07-07', 0, 'img/BobMarley.jpg', 4),
 (37, 'Hoja en Blanco', 'Dread Mar I', '10 Años ', '2016-11-04', 0, 'img/DreadMarI.jpg', 4),
@@ -100,7 +100,16 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 (44, 'goosebumps', 'Travis Scott', 'Birds in the Trap Sing McKnight', '2017-04-14', 1, 'img/TravisScott.jpg', 6),
 (45, 'Black And Yellow', 'Wiz Khalifa', 'Black and Yellow (feat. Juicy J, Snoop Dogg & T-Pain)', '2011-01-07', 0, 'img/wizKhalifa.jpg', 6),
 (46, 'En Boca De Tantos', 'Porta', 'En Boca De Tantos', '2009-06-26', 0, 'img/porta.jpg', 6),
-(50, 'La Marca de La Gorra', 'Mala Fama', 'La Tonga', '2017-12-19', 1, 'a', 1);
+(50, 'La Marca de La Gorra', 'Mala Fama', 'La Tonga', '2017-12-19', 1, 'img/malaFama.jpg', 1),
+(51, 'La Mas Linda Del Salon', 'Los Nota Lokos', 'Los Nota Lokos', '2012-09-30', NULL, 'img/losNotaLokos.jpg', 1),
+(52, 'Re Loco ', 'De La Calle', 'Mas Negro Que La Noche', '2016-07-26', NULL, 'img/deLaCalle.jpg', 1),
+(53, 'De Regreso al Penal ', 'Pala Ancha', 'Cumbia Callejera', '2001-07-19', NULL, 'img/PalaAncha.jpg', 1),
+(54, 'solo quiero amarte ', 'La Champion Liga', ' Confía en Mí', '2010-07-24', NULL, 'img/LaChampionLiga.jpg', 1),
+(55, 'Mujer Yo te amo', 'Mc Caco', 'Mc Caco', '2010-06-25', NULL, 'img/mcCaco.jpg', 1),
+(56, 'Hoy Volví a Verte ', 'El Retutu', 'El Retutu', '2011-01-28', NULL, 'img/ElRetutu.jpg', 1),
+(57, 'Una Wacha Piola', 'De La Calle', 'De La Calle', '2016-07-26', NULL, 'img/deLaCalle.jpg', 1),
+(58, 'Llama', 'Marka Akme', 'Marka Akme', '2016-05-16', NULL, 'img/markaAkme.jpg', 1),
+(59, 'Wup Wup', 'RPM', 'Revolucion Por Minuto RPM  ', '2014-08-05', NULL, 'img/RPM.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +168,7 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT de la tabla `musica`
 --
 ALTER TABLE `musica`
-  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
