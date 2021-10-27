@@ -12,4 +12,16 @@
             return $query->fetch(PDO::FETCH_OBJ);
         }
         
+        function register($user,$password){
+            $query = $this->db->prepare('INSERT INTO `usuarios` (`usuario`, `contraseña`) VALUES (?,?)');
+
+            $query->execute([$user,$password]);
+        }
+
+        function showAll(){
+            $query = $this->db->prepare(
+                'SELECT * FROM `usuarios`');
+                $query->execute([]);
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        }
     }

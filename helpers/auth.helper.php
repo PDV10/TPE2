@@ -2,7 +2,6 @@
 
 class AuthHelper {
     function __construct() {
-        // abre la sessión siempre para usar el helper
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
         }
@@ -11,6 +10,7 @@ class AuthHelper {
     public function login($user) {
         $_SESSION['USER_ID'] = $user->id_usuario;
         $_SESSION['USER_EMAIL'] = $user->usuario;
+        $_SESSION['USER_PERMISSIONS'] = $user->permiso;
     }
 
     function logout() {
