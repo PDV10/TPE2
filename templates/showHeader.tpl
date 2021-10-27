@@ -16,15 +16,15 @@
             <a href="home"><img src="img/logo2.png" alt="imagen del logo" class="icono"></a>
             <a href="home"><h1 class="struchify">StruchiFy</h1></a> 
         </div>
-<<<<<<< HEAD
         <div>
             {if isset($smarty.session.USER_ID)} 
                 <div class="a">
-                    <a href="AdministrarGeneros" class="btn btn-secondary">Administrar Generos</a>
-                    <a class="btn btn-secondary" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
                     {if $smarty.session.USER_PERMISSIONS == 1}
+                        <a href="AdministrarGeneros" class="btn btn-secondary">Administrar Generos</a>
                         <a href="showUsers" class="btn btn-secondary">Administrar usuarios</a>
                     {/if}
+                    <a class="btn btn-danger" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
+                    
                 </div>
             {else}
                 <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@getbootstrap">register</button>
@@ -32,19 +32,4 @@
                 
             {/if}
         </div>
-=======
-        
-        {if isset($smarty.session.USER_ID)} 
-            <div class="a">
-                <a href="AdministrarGeneros" class="btn btn-secondary">Administrar Generos</a>
-                <a class="btn btn-secondary" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
-            </div>
-        {else}
-            <div class="d-flex">
-                <button class="btn btn-secondary me-3" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@getbootstrap">Register</button>
-                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Login</button>
-            </div>
-        {/if}
-        
->>>>>>> f74b19b994e5ad114e329aee463b2bdfad40e678
     </div>

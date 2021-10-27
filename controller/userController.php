@@ -29,7 +29,7 @@
                     $this->authHelper->login($user);
                     header("Location: " . BASE_URL);
                 } else {
-                    $this->view->showLogin("Usuario o contraseña inválida");
+                    $this->view->showError("Usuario o contraseña inválida");
                 }
             }else{
                 header("Location: " . BASE_URL);
@@ -41,15 +41,15 @@
                 $user = $_POST['user'];
                 $password = $_POST['password'];
 
-
+                $passwordEncripted = password_hash($password,PASSWORD_BCRYPT);
                 // Consulto si el usuario existe      ¯\_( ͡ಠ - ͡ಠ)_/¯
                 $loged = $this->userModel->getUser($user);
                 if (!empty($loged)) {
-                    $this->view->showLogin("Éste usuario ya está registrado!!!");
+                    $this->view->showError("Éste usuario ya está registrado!!!");
                 }else{
 
                 // Registro al usuario                  \( ͡ಠ ͜ʖ ͡ಠ)/
-                  $this->userModel->register($user,$password);
+                  $this->userModel->register($user,$passwordEncripted);
                   $loged = $this->userModel->getUser($user);
 
                 // Genero la session al usuario         \( ͡ᵔ ͜ʖ ͡ᵔ)/
@@ -63,11 +63,64 @@
             }
         }
 
-        function showAll(){
-            $allUsers = $this->userModel->showAll();
+        public function deleteUser($idUser){
+            if (!$_SESSION['USER_ADMIN']) {
+                $this->view->showError('No contiene permiso para realizar esta accion!!!');
+            }else{
+                $cantAdmins = $this->userModel->getAllAdmin();
+                $isNotAdmin = $this->userModel->isAdmin($idUser);
 
-            if (!empty($allUsers)) {
-                $this->view->showAllUsers($allUsers);
+                // || $cantAdmins->cant == 1
+                if ($isNotAdmin){
+                    if (isset($idUser) && !empty($idUser)) {
+                        $this->userModel->deleteUser($idUser);
+                        header("Location: " .USER_TABLE);    
+                    }else{
+                        $this->view->showError("No existe este usuario!!!");
+                    }
+                }else{
+                    if ($cantAdmins->cant == 1) {
+                        $this->view->showError("No se puede eliminar el ultimo admin!!!");
+                    }else{
+                        if (isset($idUser) && !empty($idUser)) {
+                            $this->userModel->deleteUser($idUser);
+                            header("Location: " .USER_TABLE);    
+                        }else{
+                            $this->view->showError("No existe este usuario!!!");
+                        }
+                    }
+                }
+            }
+        }
+
+        function showAll(){
+            if (!($_SESSION['USER_PERMISSIONS'] == 1)) {
+                $this->view->showError('No contiene permiso para realizar esta accion!!!');
+            }else{
+                $allUsers = $this->userModel->showAll();
+
+                if (!empty($allUsers)) {
+                    $this->view->showAllUsers($allUsers);
+                }
+            }
+        }
+
+        function changeAdmin($idUser){
+            if (!($_SESSION['USER_PERMISSIONS'] == 1)) {
+                $this->view->showError('No contiene permiso para realizar esta accion!!!');
+            }else{
+                if (isset($idUser) && !empty($idUser)) {
+                    $user = $this->userModel->getPermiso($idUser);
+                    if ($user->permiso == 1) {
+                        $this->userModel->changeAdmin($idUser,0);
+                    }else if ($user->permiso == 0) {
+
+                        $this->userModel->changeAdmin($idUser,1);
+                    }
+                    header("Location: " .USER_TABLE);
+                }else{
+                    $this->view->showError("No existe este usuario!!!");
+                }
             }
         }
 

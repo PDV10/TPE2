@@ -18,7 +18,7 @@
                     <tr class="fila">
                         <td class="table-dark ">{$genre->id|truncate:20}</td>
                         <td class="table-dark ">{$genre->genero|truncate:20}</td>
-                        <td class="table-dark w-25 ps-3"><a href="deleteGenre/{$genre->id}" class="btn bg-danger me-2">X</a><a href="RenderUpdateGenre/{$genre->id}" class="btn bg-warning me-2">modificar</a></td>
+                        <td class="table-dark w-25 ps-3"><a href="deleteGenre/{$genre->id}" class="btn bg-danger me-2 btnBorrar">X</a><a href="RenderUpdateGenre/{$genre->id}" class="btn bg-warning me-2">modificar</a></td>
                     </tr>
                 {/foreach}
         </tbody>

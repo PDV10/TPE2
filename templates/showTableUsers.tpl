@@ -18,8 +18,12 @@
                     <td class="table-dark tdForm" >{$usuario->id_usuario}</td>
                     <td class="table-dark tdForm">{$usuario->usuario}</td>
                     <td class="table-dark tdForm">
-                        <a href="deleteuser/{$usuario->id_usuario}" class="btn btn-danger">Eliminar usuario</a>
-                        <a href="makeadmin/{$usuario->id_usuario}" class="btn btn-primary">Hacer admin</a>  <!-- (>‿◠)✌ -->
+                        <a href="deleteUser/{$usuario->id_usuario}" class="btn btn-danger btnBorrar">Eliminar usuario</a>
+                        {if $usuario->permiso == 0}
+                                <a href="doAdmin/{$usuario->id_usuario}" class="btn btn-primary">Hacer admin</a>  <!-- (>‿◠)✌ -->  
+                            {else}
+                                <a href="removeAdmin/{$usuario->id_usuario}" class="btn btn-secondary">Quitar admin</a>
+                        {/if}
                     </td>
                 </tr>
             {/if}

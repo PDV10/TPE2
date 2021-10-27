@@ -72,9 +72,9 @@ a h1.struchify{
     padding: 0px 10px;
 }
 
-.btn:hover{
-    background-color: rgb(245, 209, 142);
-}
+/* .btn.btnBorrar:hover{
+    background-color: rgb(255, 170, 0);
+} */
 
 .items-nav a:after{
     content: "";

@@ -1,20 +1,9 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
-<<<<<<< HEAD
-{include file="templates/showModal.tpl"}
-<div class="container-fluid justify-content-center w-25 mt-4">
-    <form action="filtro" class="d-flex">
-        <input type="hidden" name="id" value="{$id}">
-        <input class="form-control me-2" name="filtro" type="search" placeholder="Search">
-        <button type="submit" class="btn btn-secondary" >Buscar</button>
-    </form>
-</div>
-=======
 {include file="templates/showModalLogin.tpl"}
 {include file="templates/showModalRegister.tpl"}
 {include file="templates/formFiltro.tpl"}
     <div class="container mt-4" id="global">
->>>>>>> master
 
         <table class="table table-dark table-striped text-center">
             <thead class="position-sticky top-0">
@@ -49,8 +38,10 @@
                                                     <button class="corazon">💚</button>
                                         {/if}
                                     </form>
-                                        <a href="delete/{$music->id_musica}" class="btn bg-danger">X</a>
-                                        <a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
+                                    {if $smarty.session.USER_PERMISSIONS == 1}
+                                        <a href="delete/{$music->id_musica}" class="btn bg-danger btnBorrar">X</a>
+                                        <a href="update/{$music->id_musica}" class="btn bg-warning btnModificar">modificar</a>
+                                    {/if}
                                 {/if}
                                     <a href="verMas/{$music->id_musica}" class="btn btn-primary">Ver mas</a>
                                 </div>

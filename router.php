@@ -3,10 +3,12 @@
     require_once('controller/userController.php');
     require_once('controller/genreController.php');
     require_once('controller/favoriteController.php');
+   
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
     define('TABLA', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'categories/');
     define('GENRE_TABLE', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'AdministrarGeneros/');
+    define('USER_TABLE', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'showUsers/');
       
     if(!empty($_REQUEST['action'])){
         $action = $_REQUEST['action'];
@@ -36,6 +38,15 @@
             break;
         case 'showUsers':
             $userController->showAll();
+            break;
+        case 'deleteUser':
+            $userController->deleteUser($params[1]);
+            break;
+        case 'doAdmin':
+            $userController->changeAdmin($params[1]);
+            break;
+        case 'removeAdmin':
+            $userController->changeAdmin($params[1]);
             break;
         case 'delete':
             $musicController->delete($params[1]);

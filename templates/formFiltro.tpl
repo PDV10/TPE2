@@ -4,7 +4,7 @@
             <input class="form-control me-2" name="filtro" type="search" placeholder="Search">
             <button type="submit" class="btn btn-secondary" >Buscar</button>
         </form>
-        {if isset($smarty.session.USER_ID)}
+        {if $smarty.session.USER_PERMISSIONS == 1}
             <a href="showFormAddSong" class="btn btn-secondary ms-1" >Agregar</a>
         {/if}
 </div>

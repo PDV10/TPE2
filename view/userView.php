@@ -8,7 +8,7 @@ class userView{
         $this->smarty = new Smarty();
     }
 
-    function showLogin($msg){
+    function showError($msg){
         $this->smarty->assign("msg", $msg);
         $this->smarty->display("templates/showError.tpl");
     }
