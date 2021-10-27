@@ -23,10 +23,7 @@ class musicView{
         $this->smarty->display("templates/showTable.tpl");
     }
 
-    function showLogin($msg){
-        $this->smarty->assign("msg", $msg);
-        $this->smarty->display("templates/showError.tpl");
-    }
+    
 
     function musicUpdate($nombre,$artista,$album,$anio,$genres,$imagen,$id){
         $this->smarty->assign("nombre", $nombre);

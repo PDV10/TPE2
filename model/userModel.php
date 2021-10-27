@@ -17,4 +17,11 @@
 
             $query->execute([$user,$password]);
         }
+
+        function showAll(){
+            $query = $this->db->prepare(
+                'SELECT * FROM `usuarios`');
+                $query->execute([]);
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        }
     }

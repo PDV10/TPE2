@@ -1,6 +1,7 @@
 <?php
     require_once('model/userModel.php');
     require_once('view/musicView.php');
+    require_once('view/userView.php');
     require_once 'helpers/auth.helper.php';
 
     class userController{
@@ -10,7 +11,7 @@
 
         function __construct(){
             $this->userModel=new userModel();
-            $this->view=new MusicView();
+            $this->view=new userView();
             $this->authHelper = new AuthHelper();
         }
 
@@ -59,6 +60,14 @@
 
             }else{
                 header("Location: " . BASE_URL);
+            }
+        }
+
+        function showAll(){
+            $allUsers = $this->userModel->showAll();
+
+            if (!empty($allUsers)) {
+                $this->view->showAllUsers($allUsers);
             }
         }
 

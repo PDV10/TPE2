@@ -34,6 +34,9 @@
         case 'register':
             $userController->register();
             break;
+        case 'showUsers':
+            $userController->showAll();
+            break;
         case 'delete':
             $musicController->delete($params[1]);
             break;

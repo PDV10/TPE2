@@ -10,6 +10,7 @@ class AuthHelper {
     public function login($user) {
         $_SESSION['USER_ID'] = $user->id_usuario;
         $_SESSION['USER_EMAIL'] = $user->usuario;
+        $_SESSION['USER_PERMISSIONS'] = $user->permiso;
     }
 
     function logout() {
