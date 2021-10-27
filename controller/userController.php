@@ -35,7 +35,35 @@
             }
         }
 
+        public function register(){
+            if (!empty($_POST['user']) && !empty($_POST['password'])) {
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+
+
+                // Consulto si el usuario existe      ¯\_( ͡ಠ - ͡ಠ)_/¯
+                $loged = $this->userModel->getUser($user);
+                if (!empty($loged)) {
+                    $this->view->showLogin("Éste usuario ya está registrado!!!");
+                }else{
+
+                // Registro al usuario                  \( ͡ಠ ͜ʖ ͡ಠ)/
+                  $this->userModel->register($user,$password);
+                  $loged = $this->userModel->getUser($user);
+
+                // Genero la session al usuario         \( ͡ᵔ ͜ʖ ͡ᵔ)/
+                  $this->authHelper->login($loged);
+                  header("Location: " . BASE_URL);
+                }
+
+
+            }else{
+                header("Location: " . BASE_URL);
+            }
+        }
+
         function logout(){
             $this->authHelper->logout();
         }
+
     }
