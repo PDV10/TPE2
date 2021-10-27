@@ -23,8 +23,10 @@
                 <a class="btn btn-secondary" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
             </div>
         {else}
-            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@getbootstrap">register</button>
-            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">login</button>
+            <div class="d-flex">
+                <button class="btn btn-secondary me-3" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@getbootstrap">Register</button>
+                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Login</button>
+            </div>
         {/if}
         
     </div>
