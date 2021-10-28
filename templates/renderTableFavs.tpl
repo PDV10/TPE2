@@ -29,8 +29,10 @@
                                         <input type="hidden" name="musica" value="{$music->id_musica}">
                                         <button class="corazon">💚</button>
                                 </form>
-                                    <a href="delete/{$music->id_musica}" class="btn bg-danger">X</a>
-                                    <a href="update/{$music->id_musica}" class="btn bg-warning">modificar</a>
+                                    {if $smarty.session.USER_PERMISSIONS == 1}
+                                        <a href="delete/{$music->id_musica}" class="btn bg-danger btnBorrar">X</a>
+                                        <a href="update/{$music->id_musica}" class="btn bg-warning btnModificar">modificar</a>
+                                    {/if}
                             {/if}
                                 <a href="verMas/{$music->id_musica}" class="btn btn-primary">Ver mas</a>
                             </div>
