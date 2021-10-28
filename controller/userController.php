@@ -64,7 +64,7 @@
         }
 
         public function deleteUser($idUser){
-            if (!$_SESSION['USER_ADMIN']) {
+            if (!($_SESSION['USER_PERMISSIONS'] == 1)) {
                 $this->view->showError('No contiene permiso para realizar esta accion!!!');
             }else{
                 $cantAdmins = $this->userModel->getAllAdmin();
