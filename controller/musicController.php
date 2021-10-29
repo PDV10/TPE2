@@ -48,7 +48,7 @@
         }
 
         function delete($id){
-            if (!$_SESSION['USER_ADMIN']) {
+            if (!($_SESSION['USER_PERMISSIONS'] == 1))  {
                 $this->view->showError('No contiene permiso para realizar esta accion!!!');
             }else{
                 $getOneSong = $this->model->getOneSong($id);
@@ -73,7 +73,7 @@
         }
 
         function updateMusic(){
-            if (!$_SESSION['USER_ADMIN']) {
+            if (!($_SESSION['USER_PERMISSIONS'] == 1)) {
                 $this->view->showError('No contiene permiso para realizar esta accion!!!');
             }else{
                 if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && isset($_REQUEST['album']) && !empty($_REQUEST['album']) && isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) && isset($_REQUEST['genre']) && $_REQUEST['genre']!="false" && isset($_REQUEST['imagen']) && !empty($_REQUEST['imagen']) && isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
@@ -110,7 +110,7 @@
         }
 
         function addSong(){
-            if (!$_SESSION['USER_ADMIN']) {
+            if (!($_SESSION['USER_PERMISSIONS'] == 1)) {
                 $this->view->showError('No contiene permiso para realizar esta accion!!!');
             }else{
                 if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && isset($_REQUEST['album']) && !empty($_REQUEST['album']) && isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) && isset($_REQUEST['genre']) && $_REQUEST['genre']!="false" && isset($_REQUEST['imagen']) && !empty($_REQUEST['imagen'])) {
