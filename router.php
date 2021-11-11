@@ -23,6 +23,8 @@
     $favoriteController = new favoriteController();
     $genreController = new genreController();
 
+
+
     switch ($params[0]) {
         case 'home':
             $musicController->showView();

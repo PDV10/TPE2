@@ -138,6 +138,7 @@
                 $anio = $info->anio;
                 $imagen = $info->imagen;
                 $id_genero = $info->id_genero_fk;
+
             }
             $getGenero = $this->model->getGenero($id);
             $genero = $getGenero->genero;

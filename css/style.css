@@ -118,21 +118,26 @@ li a .favoritos{
     font-family: '-webkit-pictograph', cursive, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#global {
+.scrolVerMas{
+    width: 512px;
+    height: 800px;
+    overflow-y: scroll;
+}
+
+.scrollTabla {
     padding: 0;
 	height: 500px;
 	width: 80%;
 	overflow-y: scroll;
-    
 }
-#global::-webkit-scrollbar {
+.scrolVerMas,.scrollTabla::-webkit-scrollbar {
     width: 10px;
                 
   }
-#global::-webkit-scrollbar-track {
+.scrolVerMas,.scrollTabla::-webkit-scrollbar-track {
     background: #1E1D21;       
 }
-#global::-webkit-scrollbar-thumb {
+.scrolVerMas,.scrollTabla::-webkit-scrollbar-thumb {
     background-color: #3D3D41;    
     border-radius: 20px;       
     border: 3px solid #1E1D21;  

@@ -3,7 +3,7 @@
 {include file="templates/showModalLogin.tpl"}
 {include file="templates/showModalRegister.tpl"}
 {include file="templates/formFiltro.tpl"}
-    <div class="container mt-4" id="global">
+    <div class="container mt-4 scrollTabla" >
 
         <table class="table table-dark table-striped text-center">
             <thead class="position-sticky top-0">
