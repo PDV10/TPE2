@@ -45,7 +45,7 @@ class musicView{
         $this->smarty->display("templates/showError.tpl");
     }
 
-    function showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero){
+    function showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero,$puntajes){
         $this->smarty->assign("cancion",$cancion);
         $this->smarty->assign("artista",$artista);
         $this->smarty->assign("album",$album);
@@ -53,6 +53,8 @@ class musicView{
         $this->smarty->assign("genero",$genero);
         $this->smarty->assign("imagen",$imagen);
         $this->smarty->assign("id_genero",$id_genero);
+        $this->smarty->assign("puntajes",$puntajes);
+
         $this->smarty->display("templates/showMoreInfoMusic.tpl");
     }
 }
