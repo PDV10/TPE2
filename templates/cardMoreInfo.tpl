@@ -25,27 +25,8 @@
             <a href="home" class="card-link btn btn-outline-info">Home</a>
             <a href="categories/{$id_genero}" class="card-link btn btn-outline-info">Volver</a>
           </div>
-<<<<<<< HEAD
-
-          <div>
-            <form action="api/comentario">
-              <input type="text" name="comentario">
-              <select name="puntaje">
-                {foreach from=$puntajes item=$puntaje}
-                    <option value="{$puntaje->}"></option>
-                {/foreach}
-              </select>
-              <input type="button" value="">
-            </form>
-          </div>
-
-
-
-  </div>
-=======
           
          {include file="templates/vue/comentarios.tpl"}
           
     </div>
->>>>>>> pato
 </div>

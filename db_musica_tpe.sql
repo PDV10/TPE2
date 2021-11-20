@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2021 a las 04:21:20
+-- Tiempo de generación: 20-11-2021 a las 02:12:27
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_musica_tpe`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_comentarios` int(11) NOT NULL,
+  `comentario` varchar(200) NOT NULL,
+  `puntaje` tinyint(5) NOT NULL,
+  `id_cancion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_comentarios`, `comentario`, `puntaje`, `id_cancion`) VALUES
+(1, 'juan pete grillo', 3, 45);
 
 -- --------------------------------------------------------
 
@@ -97,10 +117,10 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 (41, 'Rap God', 'Eminem', 'Sencillo', '2013-10-13', 1, 'img/eminem.jpg', 6),
 (42, 'In Da Club', '50 Cent', 'In Da Club', '2009-06-09', 0, 'img/50Cent.jpg', 6),
 (43, 'Candy Shop', '50 Cent', 'Candy Shop', '2009-06-16', 0, 'img/50Cent.jpg', 6),
-(44, 'goosebumps', 'Travis Scott', 'Birds in the Trap Sing McKnight', '2017-04-14', 1, 'img/TravisScott.jpg', 6),
+(44, 'goosebumps', 'Travis Scott', 'Birds in the Trap Sing McKnight', '2017-04-14', 0, 'img/TravisScott.jpg', 6),
 (45, 'Black And Yellow', 'Wiz Khalifa', 'Black and Yellow (feat. Juicy J, Snoop Dogg & T-Pain)', '2011-01-07', 0, 'img/wizKhalifa.jpg', 6),
 (46, 'En Boca De Tantos', 'Porta', 'En Boca De Tantos', '2009-06-26', 0, 'img/porta.jpg', 6),
-(50, 'La Marca de La Gorra', 'Mala Fama', 'La Tonga', '2017-12-19', 1, 'img/malaFama.jpg', 1),
+(50, 'La Marca de La Gorra', 'Mala Fama', 'La Tonga', '2017-12-19', 0, 'img/malaFama.jpg', 1),
 (51, 'La Mas Linda Del Salon', 'Los Nota Lokos', 'Los Nota Lokos', '2012-09-30', NULL, 'img/losNotaLokos.jpg', 1),
 (52, 'Re Loco ', 'De La Calle', 'Mas Negro Que La Noche', '2016-07-26', NULL, 'img/deLaCalle.jpg', 1),
 (53, 'De Regreso al Penal ', 'Pala Ancha', 'Cumbia Callejera', '2001-07-19', NULL, 'img/PalaAncha.jpg', 1),
@@ -120,20 +140,30 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(100) NOT NULL,
-  `contraseña` varchar(100) NOT NULL
+  `contraseña` varchar(100) NOT NULL,
+  `permiso` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contraseña`) VALUES
-(2, 'admin', '$2a$12$E/XOxZiDcvenz3l5Ycu34.PwDJmxuY2RnR/r1111V3Z1f3D0bBJBC'),
-(5, 'pato', '$2a$12$F6DBmCrk7MWWPpt3MVVYK.poJ2ZwkLwqbScwOxlydy0VGnz5jlxIK');
+INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contraseña`, `permiso`) VALUES
+(2, 'admin', '$2a$12$E/XOxZiDcvenz3l5Ycu34.PwDJmxuY2RnR/r1111V3Z1f3D0bBJBC', 1),
+(8, 'pato', '$2y$10$GGWJZw6eavvwrMAjl0UUq.9Vq3q2lJ6IrlCdQKAEMth2pFZSJ5GLy', 1),
+(9, 'jere', '$2y$10$SyZ2l1PmVL2gXSeDoWd1dOOQW8Isp9Znct7dReHO8I5E0j2Lo8BG6', 0),
+(12, 'pedrito alcachofa', '$2y$10$NN.GcKsGDX3nia.68KhiGeAE2zgY0pmoJLuUAA9FuR7Xtq4FKLXEy', 0);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentarios`),
+  ADD KEY `id_cancion` (`id_cancion`);
 
 --
 -- Indices de la tabla `generos`
@@ -159,26 +189,38 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_comentarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `musica`
 --
 ALTER TABLE `musica`
-  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_musica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_cancion`) REFERENCES `musica` (`id_musica`);
 
 --
 -- Filtros para la tabla `musica`
