@@ -9,7 +9,8 @@
     define('TABLA', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'categories/');
     define('GENRE_TABLE', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'AdministrarGeneros/');
     define('USER_TABLE', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'.'showUsers/');
-      
+    
+    
     if(!empty($_REQUEST['action'])){
         $action = $_REQUEST['action'];
     }else{

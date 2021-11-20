@@ -141,8 +141,9 @@
             }
             $getGenero = $this->model->getGenero($id);
             $genero = $getGenero->genero;
+            $puntajes = [1,2,3,4,5];
             if($infoMusic){
-                $this->view->showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero);
+                $this->view->showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero,$puntajes);
             }
         }
 
