@@ -14,13 +14,13 @@
         }
 
         function delete($id){
-            $query = $this->db->prepare('DELETE * FROM comentarios WHERE id_comentarios = ?');
+            $query = $this->db->prepare('DELETE FROM comentarios WHERE id_comentarios = ?');
             $query->execute([$id]);
         }
 
         function getOne($id){
             $query = $this->db->prepare('SELECT * FROM comentarios WHERE id_comentarios = ?');
             $query->execute([$id]);
-            return $query->fetch(PDO::FETCH_OBJ); 
+            return $query->fetch(PDO::FETCH_OBJ);
         }
     }
