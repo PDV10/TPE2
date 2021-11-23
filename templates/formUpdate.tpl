@@ -1,5 +1,5 @@
 <div class="container modificar">
-    <form action="updateMusic" method="POST">
+    <form action="updateMusic" method="POST" enctype="multipart/form-data">
         <legend>Usted quiere modificar la cancion "{$nombre|upper}"</legend>
             <div class="mb-3">
                 <input type="hidden" name="id" value="{$id}" class="form-control">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="pt-3 w-5">
                     <label class="form-label">imagen de la cancion</label>
-                    <input type="text" name="imagen" class="form-control formulario" value="{$imagen}" required>
+                    <input type="file" name="input_name" class="form-control formulario" value="{$imagen}">
                 </div>
             </div>
             <div class="mb-3">

@@ -69,14 +69,20 @@
             return $query->fetch(PDO::FETCH_OBJ);
         }
 
-        function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id){
+        function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen = null,$id){
+            $pathImg = null;
+
+            if($imagen){
+                $pathImg = $this->uploadFile($imagen);
+            }
+
             $query = $this->db->prepare(
             'UPDATE musica m
             INNER JOIN generos g 
             ON m.id_genero_fk = g.id
             SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ?, imagen = ? 
             WHERE m.id_musica = ?');
-            $query->execute([$nombre,$artista,$album,$anio,$genre,$imagen,$id]);
+            $query->execute([$nombre,$artista,$album,$anio,$genre,$pathImg,$id]);
         }
 
         function filtrarAll($filtrado){
@@ -111,11 +117,17 @@
             }
         }
 
-        function addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen){
+        function addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen = null){
+            $pathImg = null;
+
+            if($imagen){
+                $pathImg = $this->uploadFile($imagen);
+            }
+
             $query = $this->db->prepare(
             'INSERT INTO musica (`nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`,`imagen`)
              VALUES (?,?,?,?,?,?)');
-            $query->execute([$nombreCancion,$artista,$album,$anio,$genero,$imagen]);
+            $query->execute([$nombreCancion,$artista,$album,$anio,$genero,$pathImg]);
             $addSong = $this->db->lastInsertId();
 
             if($addSong){
@@ -123,6 +135,12 @@
             }else{
                 return false;
             }
+        }
+
+        private function uploadFile($imagen){
+            $filePath = 'img/' . uniqid() . '.jpg';
+            move_uploaded_file($imagen, $filePath);
+            return $filePath;
         }
 
     }    

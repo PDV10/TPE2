@@ -1,5 +1,5 @@
 {include file="templates/showHeader.tpl"}
-    <form action="addSong" method="POST">
+    <form action="addSong" method="POST" enctype="multipart/form-data">
        {include file="templates/formAdd.tpl"}
     </form>
 

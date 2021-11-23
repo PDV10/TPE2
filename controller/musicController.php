@@ -76,14 +76,26 @@
             if (!($_SESSION['USER_PERMISSIONS'] == 1)) {
                 $this->view->showError('No contiene permiso para realizar esta accion!!!');
             }else{
-                if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && isset($_REQUEST['album']) && !empty($_REQUEST['album']) && isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) && isset($_REQUEST['genre']) && $_REQUEST['genre']!="false" && isset($_REQUEST['imagen']) && !empty($_REQUEST['imagen']) && isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
+                if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && 
+                isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && 
+                isset($_REQUEST['album']) && !empty($_REQUEST['album']) && 
+                isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) && 
+                isset($_REQUEST['genre']) && $_REQUEST['genre']!="false" && 
+                isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
                     $nombre = $_REQUEST['nombre'];
                     $artista = $_REQUEST['artista'];
                     $album = $_REQUEST['album'];
                     $anio = $_REQUEST['anio'];
                     $genre = $_REQUEST['genre'];
-                    $imagen = $_REQUEST['imagen'];
                     $id = $_REQUEST['id'];
+
+                    if ($_FILES['input_name']['type'] == "image/jpg"  || 
+                    $_FILES['input_name']['type'] == "image/jpeg" || 
+                    $_FILES['input_name']['type'] == "image/png"){
+                        
+                        $imagen = $_FILES['input_name']['tmp_name'];
+                    }
+
                     if($genre != "false"){
                         $this->model->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id); 
                         header("Location:". TABLA .$genre);
@@ -113,15 +125,29 @@
             if (!($_SESSION['USER_PERMISSIONS'] == 1)) {
                 $this->view->showError('No contiene permiso para realizar esta accion!!!');
             }else{
-                if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && isset($_REQUEST['album']) && !empty($_REQUEST['album']) && isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) && isset($_REQUEST['genre']) && $_REQUEST['genre']!="false" && isset($_REQUEST['imagen']) && !empty($_REQUEST['imagen'])) {
-                    
-                $nombreCancion = $_REQUEST['nombre'];
-                $artista = $_REQUEST['artista'];
-                $album = $_REQUEST['album'];
-                $anio = $_REQUEST['anio'];
-                $genero = $_REQUEST['genre'];
-                $imagen = $_REQUEST['imagen'];
-                    $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen);  
+                if (isset($_REQUEST['nombre']) && !empty($_REQUEST['nombre']) && 
+                isset($_REQUEST['artista']) && !empty($_REQUEST['artista']) && 
+                isset($_REQUEST['album']) && !empty($_REQUEST['album']) && 
+                isset($_REQUEST['anio']) && !empty($_REQUEST['anio']) &&
+                isset($_REQUEST['genre']) && $_REQUEST['genre']!="false"){
+                        
+                    $nombreCancion = $_REQUEST['nombre'];
+                    $artista = $_REQUEST['artista'];
+                    $album = $_REQUEST['album'];
+                    $anio = $_REQUEST['anio'];
+                    $genero = $_REQUEST['genre'];
+
+                    if ($_FILES['input_name']['type'] == "image/jpg"  || 
+                    $_FILES['input_name']['type'] == "image/jpeg" || 
+                    $_FILES['input_name']['type'] == "image/png"){
+                        
+                        $imagen = $_FILES['input_name']['tmp_name'];
+                        $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen);  
+                        
+                    }else{
+                        $songAdd = $this->model->addSong($nombreCancion,$artista,$album,$anio,$genero); 
+                    }
+
                     if($songAdd){
                         header("Location:". TABLA . $genero);
                     }
@@ -139,7 +165,6 @@
             $anio = $infoMusic->anio;
             $imagen = $infoMusic->imagen;
             $id_genero = $infoMusic->id_genero_fk;
-            
 
             $getGenero = $this->model->getGenero($id);
             $genero = $getGenero->genero;
