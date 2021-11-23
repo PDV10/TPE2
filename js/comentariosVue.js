@@ -19,25 +19,27 @@ formulario.addEventListener("submit", add);
 let idCancion = document.querySelector("#id_cancion").value;
 
 
+let btnFiltroComentarios = document.querySelector("#filtroComentarios");
+btnFiltroComentarios.addEventListener("click", filtroComentarios);
+
 let comentario_input = document.querySelector("#input_comentario");
 
 
-async function orderComents(order){
-    console.log("entro");
+async function orderComents(order,filtro){
+    console.log(order);
     try {
-        let response = await fetch(URL + "/canciones/" + idCancion + "/" + order);
+        let response = await fetch(URL + "/canciones/" + idCancion + "/order?filtro="+filtro+"&order="+order);
         if (response.ok) {
             let promesa = await response.json();
             app.coments = promesa;
+            console.log(promesa);
         }
     } catch (e) {
         console.log(e);
     }
 }
 
-
 async function getComents(){
-    
     try {
         let response = await fetch(URL+"/canciones/"+idCancion);
         if(response.ok){
@@ -50,7 +52,6 @@ async function getComents(){
     }
     
 }
-
 
 async function eliminar(id){
     console.log(id);
@@ -73,9 +74,6 @@ async function eliminar(id){
 
 async function add(e){
     e.preventDefault();
-
-        
-
 
     let form = new FormData(formulario);
     if (form.get("comentarios") == "") {
@@ -103,6 +101,21 @@ async function add(e){
         }
     }
 }
+ 
 
+async function filtroComentarios(e){
+    e.preventDefault();
+    console.log("entro");
+    let puntaje = document.querySelector("#puntajeComentarios"); 
+    try {
+        let response = await fetch(URL+"/canciones/" + idCancion +"/filtro/" + puntaje.value);
+        if(response.ok){
+            let promesa = await response.json(); 
+            app.coments = promesa ;
+        }  
+    } catch(e) {
+        console.log(e);
+    }
+} 
 
 getComents();

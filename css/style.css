@@ -79,9 +79,7 @@ a h1.struchify{
 .tarjetas{
     height: 753px;
 }
-.select_puntaje{
-    width: 10%;
-}
+
 .items-nav a:after{
     content: "";
     position: absolute;

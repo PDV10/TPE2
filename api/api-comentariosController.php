@@ -26,7 +26,7 @@ class ApiComentariosController{
         if(isset($params[':ID']) && !empty($params[':ID'])){
             $id_cancion = $params[':ID'];
         }
-        $comentarios = $this->comentariosModel->getComentsByCancion($id_cancion);
+        $comentarios = $this->comentariosModel->getAll($id_cancion);
         if(!empty($comentarios)){
              $this->comentariosView->response($comentarios, 200);
         }else{
@@ -35,25 +35,26 @@ class ApiComentariosController{
     }
 
     function order($params = null){
-        if(isset($params[':ORDER']) && !empty($params[':ORDER']) && isset($params[':ID']) && !empty($params[':ID']) ){
-            $id = $params[':ID'];
-            if($params[':ORDER'] == "DESC"){
-                $order = "DESC";
-                $comentsOrderByDESC = $this->comentariosModel->order($id,$order);
-                if(!empty($comentsOrderByDESC)){
-                    $this->comentariosView->response($comentsOrderByDESC, 200);
+    
+        if(isset($params[':ID']) && !empty($params[':ID']) ){
+            if(isset($_GET['filtro']) && !empty($_GET['filtro']) && ($_GET['filtro'] == "puntaje" || $_GET['filtro'] == "id_comentarios")){
+                $id = $params[':ID'];
+                $columnaFiltro = $_GET['filtro'];
+                if($_GET['order'] == "DESC"){
+                    $order = "DESC";
                 }else{
-                    $this->comentariosView->response("no se pudo realizar el ordenamiento correctamente", 404);
-                }
+                    $order = "ASC";
+                }    
+            $comentsOrder = $this->comentariosModel->order($id,$order,$columnaFiltro);
+            if(!empty($comentsOrder)){
+                $this->comentariosView->response($comentsOrder, 200);
             }else{
-                $order = "ASC";
-                $comentsOrderByASC = $this->comentariosModel->order($id,$order);
-                if(!empty($comentsOrderByASC)){
-                    $this->comentariosView->response($comentsOrderByASC, 200);
-                }else{
-                    $this->comentariosView->response("no se pudo realizar el ordenamiento correctamente", 404);
-                }
+                $this->comentariosView->response("no se pudo realizar el ordenamiento correctamente", 404);
             }
+            }
+            
+            
+           
         }
     }
 
@@ -96,4 +97,20 @@ class ApiComentariosController{
             $this->view->showError("usuario no permitido");
         }*/
     }
+
+    function filtroPuntaje($params = null){
+         if(isset($params[":ESTRELLAS"]) && !empty($params[":ESTRELLAS"]) && 
+           isset($params[':ID']) && !empty($params[':ID'])){
+             
+            $estrellas = $params[":ESTRELLAS"];
+            $id_cancion = $params[":ID"]; 
+            $filtroPuntaje = $this->comentariosModel->filtro($id_cancion,$estrellas);
+
+            if(!empty($filtroPuntaje)){
+                $this->comentariosView->response($filtroPuntaje);
+            }else{
+                $this->comentariosView->response("not found", 404);
+            }
+        }
+    }  
 }

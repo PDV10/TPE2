@@ -1,5 +1,4 @@
-    
-    {literal}
+   {literal}
    
         <div class="d-flex flex-column w-100 tarjetas" id="cajaComentarios">
     {/literal}
@@ -9,22 +8,38 @@
                     <input class="form-control m-3 d-flex text-center" type="text" placeholder="Publica un comentario" name="comentarios" id="input_comentario" required>
                     
                     <select class="form-select select_puntaje" name="puntajeComentarios">
-                        {foreach from=$puntajes item=$puntaje}
-                            <option value="{$puntaje}">{$puntaje}</option>
+                        {foreach from=$puntajes item=$puntaje key=$index}
+                            <option value="{$index}">{$puntaje}</option>
                         {/foreach}
                     </select>
                     <button type="submit" class="btn btn-outline-secondary ms-3" id="btnEnviar">Enviar</button>
                 {/if} 
             </form>
         {literal}
-            <button v-on:click="order('ASC')" class="btn btn-outline-primary text-center fs-5">⬆️</button>
+            <button v-on:click="order('ASC','id_comentarios')" class="btn btn-outline-primary text-center fs-5">⬆️</button>
+            <button v-on:click="order('ASC','puntaje')" class="btn btn-outline-primary text-center mt-3 fs-5">⭐⬆️⭐</button>
+        {/literal}
+            <div class="d-flex justify-content-center align-items-center mt-5 w-100">
+                <form action="filtroPuntaje " class="w-100 d-flex justify-content-center "> 
+                    <select class="w-50 me-3 form-select" id="puntajeComentarios">
+                        {foreach from=$puntajes item=$puntaje key=$index}
+                            <option value="{$index}">{$puntaje}</option>
+                        {/foreach}
+                    </select>  
+                    <button class="btn btn-outline-secondary" id="filtroComentarios">Filtrar</button>
+                </form>
+                
+            </div>
+        {literal}
+               
                 <div v-if="coments != ''" class="ScrollComentarios">
-                    <ul v-for="coment in coments" class="mt-5 list-group list-group-horizontal me-3">
+                    <ul v-for="coment in coments" class="mt-3 list-group list-group-horizontal me-3">
                         <li class="list-group-item list-group-item-action d-flex flex-wrap justify-content-between w-75 ms-5">
                             {{coment.comentario}}
                         </li>
                         <li class="list-group-item">
-                            <span class="spanComentario"> {{coment.puntaje}}</span>
+                            
+                            <span class="spanComentario"> {{coment.puntaje}}⭐</span>
                         </li>
                     {/literal}
 
@@ -47,6 +62,7 @@
                 </div>
             
             
-            <button v-on:click="order('DESC')" class="btn btn-outline-primary fs-5">⬇️</button>
+            <button v-on:click="order('DESC','puntaje')" class="btn btn-outline-primary fs-5 mb-3">⭐⬇️⭐</button>
+            <button v-on:click="order('DESC','id_comentarios')" class="btn btn-outline-primary fs-5">⬇️</button>
         </div>
     {/literal}
