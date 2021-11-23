@@ -1,5 +1,4 @@
    {literal}
-   
         <div class="d-flex flex-column w-100 tarjetas" id="cajaComentarios">
     {/literal}
             <form class="input-group mb-3 d-flex align-items-baseline w-100" id="formComentarios" action="api/comentarios/canciones">   
