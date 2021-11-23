@@ -1,5 +1,6 @@
 <?php
 
+
     class ComentariosModel{
         private $db;
 
@@ -23,4 +24,21 @@
             $query->execute([$id]);
             return $query->fetch(PDO::FETCH_OBJ);
         }
+
+        function addComent($comentario,$puntaje,$id_cancion){
+            $query = $this->db->prepare('INSERT INTO comentarios (comentario, puntaje, id_cancion) VALUES (?,?,?) ');
+            $query->execute([$comentario,$puntaje,$id_cancion]);
+            return $this->db->lastInsertId();
+        }
+
+        function order($id,$order){
+            $query = $this->db->prepare(
+           'SELECT *
+            FROM comentarios
+            WHERE id_cancion = ?
+            ORDER BY id_comentarios '.$order);
+            $query->execute([$id]);
+            return $query->fetchAll(PDO::FETCH_OBJ); 
+        }
+
     }

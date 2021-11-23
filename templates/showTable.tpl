@@ -1,7 +1,5 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
-{include file="templates/showModalLogin.tpl"}
-{include file="templates/showModalRegister.tpl"}
 {include file="templates/formFiltro.tpl"}
     <div class="container mt-4 scrollTabla" >
 

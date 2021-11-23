@@ -33,3 +33,6 @@
             {/if}
         </div>
     </div>
+
+{include file="templates/showModalLogin.tpl"}
+{include file="templates/showModalRegister.tpl"}

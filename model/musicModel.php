@@ -66,7 +66,7 @@
             INNER JOIN generos g
             WHERE m.id_musica = ?');
             $query->execute([$id]);
-            return $query->fetchAll(PDO::FETCH_OBJ);
+            return $query->fetch(PDO::FETCH_OBJ);
         }
 
         function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id){

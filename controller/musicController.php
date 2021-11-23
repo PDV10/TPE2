@@ -60,14 +60,14 @@
 
         function update($id){
 
-            $getDatesOfMusic = $this->model->getDatesOfMusic($id);
-            foreach ($getDatesOfMusic as $data) {
-                $nombre = $data->nombreCancion;
-                $artista = $data->artista;
-                $album = $data->album;
-                $anio = $data->anio;
-                $imagen = $data->imagen;
-            }
+            $infoMusic = $this->model->getDatesOfMusic($id);
+            
+            $nombre = $infoMusic->nombreCancion;
+            $artista = $infoMusic->artista;
+            $album = $infoMusic->album;
+            $anio = $infoMusic->anio;
+            $imagen = $infoMusic->imagen;
+            
             $genres = $this->genreModel->getAllGenre();
             $this->view->musicUpdate($nombre,$artista,$album,$anio,$genres,$imagen,$id);
         }
@@ -130,21 +130,22 @@
         }
         
         function showModalseeMore($id){
-            $infoMusic = $this->model->getDatesOfMusic($id);
-            foreach ($infoMusic as $info) {
-                $cancion = $info->nombreCancion;
-                $artista = $info->artista;
-                $album = $info->album;
-                $anio = $info->anio;
-                $imagen = $info->imagen;
-                $id_genero = $info->id_genero_fk;
 
-            }
+            $infoMusic = $this->model->getDatesOfMusic($id);
+
+            $cancion = $infoMusic->nombreCancion;
+            $artista = $infoMusic->artista;
+            $album = $infoMusic->album;
+            $anio = $infoMusic->anio;
+            $imagen = $infoMusic->imagen;
+            $id_genero = $infoMusic->id_genero_fk;
+            
+
             $getGenero = $this->model->getGenero($id);
             $genero = $getGenero->genero;
             $puntajes = [1,2,3,4,5];
             if($infoMusic){
-                $this->view->showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero,$puntajes);
+                $this->view->showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero,$puntajes,$id);
             }
         }
 

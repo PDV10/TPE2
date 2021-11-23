@@ -1,6 +1,4 @@
 {include file="templates/showHeader.tpl"}
-{include file="templates/showModalLogin.tpl"}
-{include file="templates/showModalRegister.tpl"}
 
 
 <table class="table table-dark table-striped text-center">

@@ -71,10 +71,12 @@ a h1.struchify{
     letter-spacing: 0.5px;
     padding: 0px 10px;
 }
-
-/* .btn.btnBorrar:hover{
-    background-color: rgb(255, 170, 0);
-} */
+ 
+.ScrollComentarios{
+    height: 751px;
+    overflow-y: scroll;
+    overflow-wrap: normal;
+} 
 
 .items-nav a:after{
     content: "";

@@ -30,11 +30,11 @@ class favoriteController{
             $id_genero = $_REQUEST['genero'];
         }
             
-        $datesOfMusicId = $this->musicModel->getDatesOfMusic($id);
-        foreach ($datesOfMusicId as $date) {
-            $genero = $date->id_genero_fk;
-            $favorito = $date->favorito;
-        }
+        $infoMusic = $this->musicModel->getDatesOfMusic($id);
+        
+        $genero = $infoMusic->id_genero_fk;
+        $favorito = $infoMusic->favorito;
+        
 
         if ($favorito == 0) {
             $fav = 1; 
