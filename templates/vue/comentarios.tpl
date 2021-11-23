@@ -1,12 +1,32 @@
     
     {literal}
    
-        <div class="d-flex flex-column w-100" id="cajaComentarios">
+        <div class="d-flex flex-column w-100 tarjetas" id="cajaComentarios">
+    {/literal}
+            <form class="input-group mb-3 d-flex align-items-baseline w-100" id="formComentarios" action="api/comentarios/canciones">   
+                <input type="hidden" id="id_cancion" name="id_cancion" value="{$id_cancion}">  
+                {if isset($smarty.session.USER_ID)} 
+                    <input class="form-control m-3 d-flex text-center" type="text" placeholder="Publica un comentario" name="comentarios" id="input_comentario" required>
+                    
+                    <select class="form-select select_puntaje" name="puntajeComentarios">
+                        {foreach from=$puntajes item=$puntaje}
+                            <option value="{$puntaje}">{$puntaje}</option>
+                        {/foreach}
+                    </select>
+                    <button type="submit" class="btn btn-outline-secondary ms-3" id="btnEnviar">Enviar</button>
+                {/if} 
+            </form>
+        {literal}
             <button v-on:click="order('ASC')" class="btn btn-outline-primary text-center fs-5">⬆️</button>
                 
                 <div v-if="coments != ''" class="ScrollComentarios">
-                    <ul v-for="coment in coments" class="mt-5 list-group list-group-horizontal">
-                        <li class="list-group-item list-group-item-action d-flex justify-content-between w-75 ms-5">{{coment.comentario}} <span class="spanComentario"> {{coment.puntaje}}</span> 
+                    <ul v-for="coment in coments" class="mt-5 list-group list-group-horizontal me-3">
+                        <li class="list-group-item list-group-item-action d-flex flex-wrap justify-content-between w-75 ms-5">
+                            {{coment.comentario}}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="spanComentario"> {{coment.puntaje}}</span>
+                        </li>
                     {/literal}
 
                     {if isset($smarty.session.USER_PERMISSIONS) && $smarty.session.USER_PERMISSIONS == 1}
@@ -23,8 +43,8 @@
 
                     </ul>
                 </div>
-                <div v-else >
-                    <p> no hay comentarios en esta cancion </p>
+                <div v-else class="ScrollComentarios d-flex justify-content-center h-100">
+                    <p class="align-self-center"> no hay comentarios en esta cancion </p>
                 </div>
             
             

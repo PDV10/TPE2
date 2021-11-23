@@ -73,11 +73,15 @@ a h1.struchify{
 }
  
 .ScrollComentarios{
-    height: 751px;
     overflow-y: scroll;
     overflow-wrap: normal;
-} 
-
+}
+.tarjetas{
+    height: 753px;
+}
+.select_puntaje{
+    width: 10%;
+}
 .items-nav a:after{
     content: "";
     position: absolute;

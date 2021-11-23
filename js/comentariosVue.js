@@ -19,6 +19,9 @@ formulario.addEventListener("submit", add);
 let idCancion = document.querySelector("#id_cancion").value;
 
 
+let comentario_input = document.querySelector("#input_comentario");
+
+
 async function orderComents(order){
     console.log("entro");
     try {
@@ -70,27 +73,34 @@ async function eliminar(id){
 
 async function add(e){
     e.preventDefault();
-    
+
+        
+
+
     let form = new FormData(formulario);
-
-    let comentario = {
-        "comentario": form.get("comentarios"),
-        "puntaje": form.get("puntajeComentarios"),
-        "id_cancion": form.get("id_cancion")
-    }
-
-    try{
-        let resp = await fetch(URL+"/canciones/", {
-            "method": "POST",
-            "headers": { "Content-type": "application/json" },
-            "body": JSON.stringify(comentario)
-        });       
-        if (resp.ok) {
-            console.log("se agrego comentario correctamente");
-            getComents();
+    if (form.get("comentarios") == "") {
+        console.log("campo vacio");
+    }else{
+        let comentario = {
+            "comentario": form.get("comentarios"),
+            "puntaje": form.get("puntajeComentarios"),
+            "id_cancion": form.get("id_cancion")
         }
-    }catch (error) {
-        console.log("error catch");
+
+        try{
+            let resp = await fetch(URL+"/canciones/", {
+                "method": "POST",
+                "headers": { "Content-type": "application/json" },
+                "body": JSON.stringify(comentario)
+            });       
+            if (resp.ok) {
+                console.log("se agrego comentario correctamente");
+                getComents();
+                comentario_input.value = "";
+            }
+        }catch (error) {
+            console.log("error catch");
+        }
     }
 }
 
