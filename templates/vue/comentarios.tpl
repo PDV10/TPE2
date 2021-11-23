@@ -18,7 +18,6 @@
             </form>
         {literal}
             <button v-on:click="order('ASC')" class="btn btn-outline-primary text-center fs-5">⬆️</button>
-                
                 <div v-if="coments != ''" class="ScrollComentarios">
                     <ul v-for="coment in coments" class="mt-5 list-group list-group-horizontal me-3">
                         <li class="list-group-item list-group-item-action d-flex flex-wrap justify-content-between w-75 ms-5">

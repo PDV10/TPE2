@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2021 a las 02:12:27
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Tiempo de generación: 23-11-2021 a las 02:48:50
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `comentarios` (
   `id_comentarios` int(11) NOT NULL,
   `comentario` varchar(200) NOT NULL,
-  `puntaje` tinyint(5) NOT NULL,
+  `puntaje` varchar(5) NOT NULL,
   `id_cancion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -39,7 +39,14 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id_comentarios`, `comentario`, `puntaje`, `id_cancion`) VALUES
-(1, 'juan pete grillo', 3, 45);
+(2, 'hola jere', '3', 10),
+(3, 'lamamadelamamadelamama', '3', 10),
+(63, '1sadacauyoiiundas', '⭐', 50),
+(77, 'carga', '⭐⭐', 50),
+(78, 'iusdausd', '⭐⭐⭐', 50),
+(79, 'afafsada', '⭐⭐⭐⭐', 50),
+(80, 'asdasdaefasf', '⭐⭐⭐⭐⭐', 50),
+(81, 'sadasddad', '⭐⭐⭐', 50);
 
 -- --------------------------------------------------------
 
@@ -192,7 +199,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_comentarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT de la tabla `generos`
