@@ -6,7 +6,7 @@
      require_once('model/genreModel.php');
      require_once ('helpers/auth.helper.php');
 
-class favoriteController{
+class FavoriteController{
 
     private $favoriteView;
     private $favoriteModel;
@@ -16,11 +16,11 @@ class favoriteController{
     private $authHelper;
 
     function __construct(){
-        $this->favoriteView = new favoriteView();
-        $this->favoriteModel = new favoriteModel();
-        $this->genreModel = new genreModel();
-        $this->musicModel = new musicModel();
-        $this->musicView = new musicView();
+        $this->favoriteView = new FavoriteView();
+        $this->favoriteModel = new FavoriteModel();
+        $this->genreModel = new GenreModel();
+        $this->musicModel = new MusicModel();
+        $this->musicView = new MusicView();
         $this->authHelper = new AuthHelper();
     }
 

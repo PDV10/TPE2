@@ -24,7 +24,6 @@ btnFiltroComentarios.addEventListener("click", filtroComentarios);
 
 let comentario_input = document.querySelector("#input_comentario");
 
-
 async function orderComents(order,filtro){
     console.log(order);
     try {

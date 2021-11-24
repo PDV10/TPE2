@@ -34,5 +34,5 @@
         </div>
     </div>
 
-{include file="templates/showModalLogin.tpl"}
-{include file="templates/showModalRegister.tpl"}
+{include file="templates/modals/showModalLogin.tpl"}
+{include file="templates/modals/showModalRegister.tpl"}

@@ -4,14 +4,14 @@
     require_once('view/userView.php');
     require_once 'helpers/auth.helper.php';
 
-    class userController{
+    class UserController{
         private $userModel;
         private $view;
         private $authHelper;
 
         function __construct(){
-            $this->userModel=new userModel();
-            $this->view=new userView();
+            $this->userModel=new UserModel();
+            $this->view=new UserView();
             $this->authHelper = new AuthHelper();
         }
 

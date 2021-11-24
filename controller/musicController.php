@@ -7,7 +7,7 @@
     /* externos */
     require_once('model/genreModel.php');
 
-    class musicController{
+    class MusicController{
         private $view;
         private $model;
         private $genreModel;
@@ -15,9 +15,9 @@
         private $genres;
 
         function __construct(){
-            $this->view = new musicView();
-            $this->model = new musicModel();
-            $this->genreModel = new genreModel();
+            $this->view = new MusicView();
+            $this->model = new MusicModel();
+            $this->genreModel = new GenreModel();
             $this->authHelper = new AuthHelper();
             $this->genres = $this->genreModel->getAllGenre();
         }
@@ -174,5 +174,4 @@
                 $this->view->showMoreInfoMusic($cancion,$artista,$album,$anio,$genero,$imagen,$id_genero,$puntajes,$id);
             }
         }
-
     }

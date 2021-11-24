@@ -11,7 +11,7 @@ class favoriteView{
     function showTableFavs($favsSongs,$genres){
         $this->smarty->assign("songs", $favsSongs);
         $this->smarty->assign("genres", $genres);
-        $this->smarty->display("templates/showTableFavs.tpl");
+        $this->smarty->display("templates/table/showTableFavs.tpl");
     }
         
 }

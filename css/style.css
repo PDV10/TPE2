@@ -91,7 +91,6 @@ a h1.struchify{
     transition: 0.3s;
 }
 
-
 .items-nav a:hover:after{
     width: 100%;
 }

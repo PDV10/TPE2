@@ -15,6 +15,6 @@ class userView{
 
     function showAllUsers($allUsers){
         $this->smarty->assign("allUsers", $allUsers);
-        $this->smarty->display("templates/showTableUsers.tpl");
+        $this->smarty->display("templates/table/showTableUsers.tpl");
     }
 }

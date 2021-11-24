@@ -42,14 +42,12 @@
                         </li>
                     {/literal}
 
-                    {if isset($smarty.session.USER_PERMISSIONS) && $smarty.session.USER_PERMISSIONS == 1}
-                        
+                    {if isset($smarty.session.USER_PERMISSIONS) && $smarty.session.USER_PERMISSIONS == 1}   
                         {literal}
                             <li class="list-group-item">
                                 <button class="badge bg-danger rounded-pill" v-on:click="eliminar(coment.id_comentarios)" class="btn btn-danger btnEliminar">X</button> </li>        
                             </li>
                         {/literal}
-
                     {/if}
                     
                     {literal}

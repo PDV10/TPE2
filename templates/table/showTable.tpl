@@ -1,11 +1,12 @@
 {include file="templates/showHeader.tpl"}
 {include file="templates/showNav.tpl"}
-{include file="templates/formFiltro.tpl"}
+{include file="templates/forms/formFiltro.tpl"}
     <div class="container mt-4 scrollTabla" >
 
         <table class="table table-dark table-striped text-center">
             <thead class="position-sticky top-0">
-                <tr>
+                <tr>   
+                    <th>-</th>
                     <th>nombre</th>
                     <th>artista</th>
                     <th>album</th>
@@ -15,8 +16,9 @@
             </thead>
             <tbody>
                     {foreach from=$musicForGenre item=$music}
-                   
-                            <tr class="fila">
+                    
+                        <tr class="fila" >
+                            <td class="table-dark tdForm"><a href="play/{$music->id_musica}" class="btnPlay btn btn-outline-primary">▶️</a></td>
                             <td class="table-dark tdForm">{$music->nombreCancion|truncate:15}</td>
                             <td class="table-dark tdForm">{$music->artista|truncate:15}</td>
                             <td class="table-dark tdForm">{$music->album|truncate:15}</td>

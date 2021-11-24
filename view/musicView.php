@@ -20,7 +20,8 @@ class musicView{
            $this->smarty->assign("genero", $tablaTodos); 
         }
         $this->smarty->assign("musicForGenre", $musicForGenre);
-        $this->smarty->display("templates/showTable.tpl");
+
+        $this->smarty->display("templates/table/showTable.tpl");
     }
 
     
@@ -33,13 +34,15 @@ class musicView{
         $this->smarty->assign("genres", $genres);
         $this->smarty->assign("imagen", $imagen);
         $this->smarty->assign("id", $id);
-        $this->smarty->display("templates/updateMusic.tpl");
+
+        $this->smarty->display("templates/forms/formUpdateMusic.tpl");
     }
 
     function showFormAddSong($genres){
         $this->smarty->assign("genres", $genres);
-        $this->smarty->display("templates/showFormAddSong.tpl");
+        $this->smarty->display("templates/forms/showFormAddSong.tpl");
     }
+
     function showError($msg){
         $this->smarty->assign("msg",$msg);
         $this->smarty->display("templates/showError.tpl");
