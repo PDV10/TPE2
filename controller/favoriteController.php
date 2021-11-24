@@ -27,7 +27,7 @@ class FavoriteController{
     function changeValueFav(){
         if (isset($_REQUEST['musica']) || isset($_REQUEST['genero'])){
             $id = $_REQUEST['musica'];
-            $id_genero = $_REQUEST['genero'];
+            $id_genero = $_REQUEST['tablaTodos'];
         }
             
         $infoMusic = $this->musicModel->getDatesOfMusic($id);

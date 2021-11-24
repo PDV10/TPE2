@@ -60,11 +60,7 @@
         }
 
         function getDatesOfMusic($id){
-            $query = $this->db->prepare(
-           'SELECT m.* 
-            FROM musica m
-            INNER JOIN generos g
-            WHERE m.id_musica = ?');
+            $query = $this->db->prepare('SELECT * FROM musica WHERE id_musica = ?');
             $query->execute([$id]);
             return $query->fetch(PDO::FETCH_OBJ);
         }

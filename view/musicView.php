@@ -13,11 +13,13 @@ class musicView{
         $this->smarty->display("templates/showHome.tpl");
     }
 
-    function showTable($musicForGenre,$genre, $id, $tablaTodos=NULL){
+    function showTable($musicForGenre,$genre, $idGenero, $tablaTodos=NULL){
+        // para mostrar los generos en el nav
         $this->smarty->assign("genres", $genre);
-        $this->smarty->assign("id", $id);
+        // para usarlo en el form filtro
+        $this->smarty->assign("idGenero", $idGenero);
         if($tablaTodos){
-           $this->smarty->assign("genero", $tablaTodos); 
+           $this->smarty->assign("tablaTodos", $tablaTodos); 
         }
         $this->smarty->assign("musicForGenre", $musicForGenre);
 

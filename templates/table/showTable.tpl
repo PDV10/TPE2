@@ -27,20 +27,19 @@
                                 <div class="w-75 p-3 d-flex justify-content-around">
                                 {if isset($smarty.session.USER_ID)}
                                     <form action="changeValueFav" method="POST">
-                                        {if isset($genero)}
-                                            <input type="hidden" name="genero" value="{$genero}">
+                                        {if isset($tablaTodos)}
+                                            <input type="hidden" name="tablaTodos" value="{$tablaTodos}">
                                         {/if} 
-                                        {if $music->favorito == 0} 
-                                                    <input type="hidden" name="musica" value="{$music->id_musica}">                
-                                                    <button name="button" class="corazon">💜</button>
+                                         <input type="hidden" name="musica" value="{$music->id_musica}">
+                                        {if $music->favorito == 0}                
+                                                <button class="corazon">💜</button>
                                             {else}
-                                                    <input type="hidden" name="musica" value="{$music->id_musica}">
-                                                    <button class="corazon">💚</button>
+                                                <button class="corazon">💚</button>
                                         {/if}
                                     </form>
                                     {if $smarty.session.USER_PERMISSIONS == 1}
-                                        <a href="delete/{$music->id_musica}" class="btn bg-danger btnBorrar">X</a>
-                                        <a href="update/{$music->id_musica}" class="btn bg-warning btnModificar">modificar</a>
+                                        <a href="deleteSong/{$music->id_musica}" class="btn bg-danger btnBorrar">X</a>
+                                        <a href="showFormUpdate/{$music->id_musica}" class="btn bg-warning btnModificar">modificar</a>
                                     {/if}
                                 {/if}
                                     <a href="verMas/{$music->id_musica}" class="btn btn-primary">Ver mas</a>

@@ -47,16 +47,17 @@
                 if (!empty($loged)) {
                     $this->view->showError("Éste usuario ya está registrado!!!");
                 }else{
-
                 // Registro al usuario                  \( ͡ಠ ͜ʖ ͡ಠ)/
                   $this->userModel->register($user,$passwordEncripted);
                   $loged = $this->userModel->getUser($user);
 
-                // Genero la session al usuario         \( ͡ᵔ ͜ʖ ͡ᵔ)/
-                  $this->authHelper->login($loged);
-                  header("Location: " . BASE_URL);
+                  if ($loged) {
+                    // Genero la session al usuario         \( ͡ᵔ ͜ʖ ͡ᵔ)/
+                    $this->authHelper->login($loged);
+                    header("Location: " . BASE_URL);
+                  }
+                
                 }
-
 
             }else{
                 header("Location: " . BASE_URL);
@@ -68,10 +69,10 @@
                 $this->view->showError('No contiene permiso para realizar esta accion!!!');
             }else{
                 $cantAdmins = $this->userModel->getAllAdmin();
-                $isNotAdmin = $this->userModel->isAdmin($idUser);
+                $isAdmin = $this->userModel->isAdmin($idUser);
 
                 // || $cantAdmins->cant == 1
-                if ($isNotAdmin){
+                if (!$isAdmin){
                     if (isset($idUser) && !empty($idUser)) {
                         $this->userModel->deleteUser($idUser);
                         header("Location: " .USER_TABLE);    
@@ -113,8 +114,7 @@
                     $user = $this->userModel->getPermiso($idUser);
                     if ($user->permiso == 1) {
                         $this->userModel->changeAdmin($idUser,0);
-                    }else if ($user->permiso == 0) {
-
+                    }else{
                         $this->userModel->changeAdmin($idUser,1);
                     }
                     header("Location: " .USER_TABLE);

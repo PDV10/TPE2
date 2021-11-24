@@ -24,8 +24,6 @@
     $favoriteController = new favoriteController();
     $genreController = new genreController();
 
-
-
     switch ($params[0]) {
         case 'home':
             $musicController->showView();
@@ -51,11 +49,11 @@
         case 'removeAdmin':
             $userController->changeAdmin($params[1]);
             break;
-        case 'delete':
-            $musicController->delete($params[1]);
+        case 'deleteSong':
+            $musicController->deleteSong($params[1]);
             break;
-        case 'update':
-            $musicController->update($params[1]);
+        case 'showFormUpdate':
+            $musicController->showFormUpdate($params[1]);
             break;
         case 'updateMusic':
             $musicController->updateMusic();
@@ -69,17 +67,17 @@
         case 'showFormAddSong':
             $musicController->showFormAddSong();
             break;
+        case 'addSong':
+            $musicController->addSong();
+            break;
         case 'changeValueFav':
             $favoriteController->changeValueFav();
             break;
         case 'favorites':
             $favoriteController->showTableFav();
             break;
-        case 'addSong':
-            $musicController->addSong();
-            break;
         case 'verMas':
-            $musicController->showModalseeMore($params[1]);
+            $musicController->showCardSeeMore($params[1]);
             break;
         case 'AdministrarGeneros':
             $genreController->showTableGenre();

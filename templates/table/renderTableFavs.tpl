@@ -23,11 +23,8 @@
                             <div class="w-75 p-3 d-flex justify-content-around">
                             {if isset($smarty.session.USER_ID)}
                                 <form action="changeValueFav" method="POST">
-                                    {if isset($genero)}
-                                        <input type="hidden" name="genero" value="{$genero}">
-                                    {/if} 
-                                        <input type="hidden" name="musica" value="{$music->id_musica}">
-                                        <button class="corazon">💚</button>
+                                    <input type="hidden" name="musica" value="{$music->id_musica}">
+                                    <button class="corazon">💚</button>
                                 </form>
                                     {if $smarty.session.USER_PERMISSIONS == 1}
                                         <a href="delete/{$music->id_musica}" class="btn bg-danger btnBorrar">X</a>

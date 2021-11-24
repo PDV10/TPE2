@@ -1,5 +1,6 @@
 "use strict"
 const URL = "api/comentarios";
+
 let app = new Vue({
     el: "#cajaComentarios",
     data: {
@@ -17,7 +18,6 @@ let formulario = document.querySelector("#formComentarios");
 formulario.addEventListener("submit", add);
 
 let idCancion = document.querySelector("#id_cancion").value;
-
 
 let btnFiltroComentarios = document.querySelector("#filtroComentarios");
 btnFiltroComentarios.addEventListener("click", filtroComentarios);
@@ -60,10 +60,9 @@ async function eliminar(id){
         });
         if (response.ok) {
             for (let i = 0; i < app.coments.length; i++) {
-              if(app.coments[i].id_comentarios == id){
+                if(app.coments[i].id_comentarios == id){
                 app.coments.splice(i,1);
-              }
-               
+                }
             }
         }
     } catch (e) {

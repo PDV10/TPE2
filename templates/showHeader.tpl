@@ -29,7 +29,6 @@
             {else}
                 <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@getbootstrap">register</button>
                 <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">login</button>
-                
             {/if}
         </div>
     </div>
