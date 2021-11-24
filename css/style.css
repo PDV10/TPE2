@@ -183,3 +183,10 @@ input.formulario:invalid {
     display:inline-block;
     transform: rotate(180deg);
 }
+
+.botones{
+    display: block;
+}
+.botones_no{
+    display: none;
+}
