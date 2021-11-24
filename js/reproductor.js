@@ -20,7 +20,6 @@ botones_pause.forEach(btn => {
     
 });
 
-
 function reproducir(id){
 
     botones_play.forEach(btn => {
