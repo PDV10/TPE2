@@ -18,8 +18,13 @@
                     {foreach from=$musicForGenre item=$music}
                     
                         <tr class="fila" >
-                            <td class="table-dark tdForm"><audio class="audios_musica" id="play{$music->id_musica}" data-id-audio="play{$music->id_musica}"><source src="{$music->audio}" type="audio/mp3"></audio> <button class="botones_play" data-id="{$music->id_musica}" >></button>
-                                                                                                                                                                                                                    <button class="botones_pause botones_no" data-id="{$music->id_musica}" >||</button></td>
+                            <td class="table-dark tdForm">
+                            {include file="templates/audio.tpl"}
+                                
+                                <button class="btn btn-outline-primary botones_play" data-id="{$music->id_musica}" >▶️</button>
+                                <button class="btn btn-outline-primary botones_pause botones_no" data-id="{$music->id_musica}" >⏸️</button>
+                            </td>
+                            
                             <td class="table-dark tdForm">{$music->nombreCancion|truncate:15}</td>
                             <td class="table-dark tdForm">{$music->artista|truncate:15}</td>
                             <td class="table-dark tdForm">{$music->album|truncate:15}</td>
@@ -52,5 +57,5 @@
         </table>
     </div>
     <script src="js/reproductor.js"></script>
-{include file="templates/audio.tpl"}
+
 {include file="templates/showFooter.tpl"}

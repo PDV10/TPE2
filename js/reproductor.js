@@ -1,7 +1,5 @@
-
+"use strict";
 let botones_play = document.querySelectorAll(".botones_play");
-
-
 
 botones_play.forEach(btn => {
     console.log(btn.dataset.id);
@@ -12,23 +10,15 @@ botones_play.forEach(btn => {
     
 });
 
-
 let botones_pause = document.querySelectorAll(".botones_pause");
 
 botones_pause.forEach(btn => {
     console.log(btn.dataset.id);
     btn.addEventListener('click',()=>{
         pausar(btn.dataset.id);
-
     })
     
 });
-
-
-
-
-// let btn_play = document.getElementById('btn_10');
-// btn_play.addEventListener('click',reproducir);
 
 
 function reproducir(id){
@@ -48,7 +38,6 @@ function reproducir(id){
 
     let audio = document.querySelector('#play'+id);
     audio.play();
-    console.log(audio);
 }
 
 
@@ -69,5 +58,4 @@ function pausar(id){
 
     let audio = document.querySelector('#play'+id);
     audio.pause();
-    console.log(audio);
 }
