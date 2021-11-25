@@ -28,7 +28,7 @@ class musicView{
 
     
 
-    function musicUpdate($nombre,$artista,$album,$anio,$genres,$imagen,$id){
+    function musicUpdate($nombre,$artista,$album,$anio,$genres,$imagen,$id,$audio){
         $this->smarty->assign("nombre", $nombre);
         $this->smarty->assign("artista", $artista);
         $this->smarty->assign("album", $album);
@@ -36,6 +36,7 @@ class musicView{
         $this->smarty->assign("genres", $genres);
         $this->smarty->assign("imagen", $imagen);
         $this->smarty->assign("id", $id);
+        $this->smarty->assign("audio", $audio);
 
         $this->smarty->display("templates/forms/formUpdateMusic.tpl");
     }
@@ -60,7 +61,7 @@ class musicView{
         $this->smarty->assign("id_genero",$id_genero);
         $this->smarty->assign("puntajes",$puntajes);
         $this->smarty->assign("id_cancion",$id);
-
+        
         $this->smarty->display("templates/showMoreInfoMusic.tpl");
     }
 }

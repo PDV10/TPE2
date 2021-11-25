@@ -65,20 +65,30 @@
             return $query->fetch(PDO::FETCH_OBJ);
         }
 
-        function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen = null,$id,$url_cancion){
+        function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen = null,$id,$url_cancion = null){
             $pathImg = null;
-
+           
             if($imagen){
                 $pathImg = $this->uploadFile($imagen);
-            }
 
-            $query = $this->db->prepare(
-            'UPDATE musica m
-            INNER JOIN generos g 
-            ON m.id_genero_fk = g.id
-            SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ?, imagen = ? ,cancion = ?
-            WHERE m.id_musica = ?');
-            $query->execute([$nombre,$artista,$album,$anio,$genre,$pathImg,$id,$url_cancion]);
+                $query = $this->db->prepare(
+                'UPDATE musica m
+                INNER JOIN generos g 
+                ON m.id_genero_fk = g.id
+                SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ?, imagen = ?, cancion = ?
+                WHERE m.id_musica = ?');
+                $query->execute([$nombre,$artista,$album,$anio,$genre,$pathImg,$url_cancion,$id]);
+            
+            }else{
+                $query = $this->db->prepare(
+                'UPDATE musica m
+                INNER JOIN generos g 
+                ON m.id_genero_fk = g.id
+                SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ?, cancion = ?
+                WHERE m.id_musica = ?');
+                $query->execute([$nombre,$artista,$album,$anio,$genre,$url_cancion,$id]);
+            }
+           
         }
 
         function filtrarAll($filtrado){

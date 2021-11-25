@@ -25,7 +25,7 @@
                 </div>
                 <div class="pt-3 w-5">
                     <label class="form-label">url de cancion</label>
-                    <input type="text" name="url_cancion" class="form-control formulario">
+                    <input type="text" name="url_cancion" class="form-control formulario" value="{$audio}">
                 </div>
 
             </div>

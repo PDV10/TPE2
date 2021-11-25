@@ -24,6 +24,7 @@
                 <input type="file" name="input_name" id="imageToUpload"  class="form-control formulario">
             </div>
             
+            
         </div>
         <div class="mb-3">
             <label class="form-label">Genero de la cancion</label>
