@@ -123,7 +123,7 @@
             }
         }
 
-        function addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen = null){
+        function addSong($nombreCancion,$artista,$album,$anio,$genero,$url_cancion,$imagen = null){
             $pathImg = null;
 
             if($imagen){
@@ -131,9 +131,9 @@
             }
 
             $query = $this->db->prepare(
-            'INSERT INTO musica (`nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`,`imagen`)
-             VALUES (?,?,?,?,?,?)');
-            $query->execute([$nombreCancion,$artista,$album,$anio,$genero,$pathImg]);
+            'INSERT INTO musica (`nombreCancion`, `artista`, `album`, `anio`, `id_genero_fk`,`cancion`,`imagen`)
+             VALUES (?,?,?,?,?,?,?)');
+            $query->execute([$nombreCancion,$artista,$album,$anio,$genero,$url_cancion,$pathImg]);
             $addSong = $this->db->lastInsertId();
 
             if($addSong){

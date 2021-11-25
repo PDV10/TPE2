@@ -12,3 +12,5 @@ contraseña: admin
 usuario normal: user
 contraseña: user
 
+la carpeta pesa 80 mb debido a que el archivo ubicado en esta ruta pesa 77.000kb
+TPE2/.git/objects/pack

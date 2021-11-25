@@ -23,6 +23,11 @@
                 <label class="form-label">Imagen de la cancion</label>
                 <input type="file" name="input_name" id="imageToUpload"  class="form-control formulario">
             </div>
+
+             <div class="pt-3 w-5">
+                <label class="form-label">url de cancion</label>
+                <input type="text" name="url_cancion" class="form-control formulario">
+            </div>
             
             
         </div>

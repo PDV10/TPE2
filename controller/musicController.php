@@ -146,17 +146,19 @@
                     $anio = $_REQUEST['anio'];
                     $genero = $_REQUEST['genre'];
 
-                    
+                    if(isset($_REQUEST['url_cancion']) && !empty($_REQUEST['url_cancion'])){
+                        $url_cancion = $_REQUEST['url_cancion'];
+                    }
 
                     if ($_FILES['input_name']['type'] == "image/jpg" || 
                         $_FILES['input_name']['type'] == "image/jpeg"|| 
                         $_FILES['input_name']['type'] == "image/png"){
                         
                         $imagen = $_FILES['input_name']['tmp_name'];
-                        $songAdd = $this->musicModel->addSong($nombreCancion,$artista,$album,$anio,$genero,$imagen);  
+                        $songAdd = $this->musicModel->addSong($nombreCancion,$artista,$album,$anio,$genero,$url_cancion,$imagen);  
                         
                     }else{
-                        $songAdd = $this->musicModel->addSong($nombreCancion,$artista,$album,$anio,$genero); 
+                        $songAdd = $this->musicModel->addSong($nombreCancion,$artista,$album,$anio,$genero,$url_cancion,null); 
                     }
 
                     if($songAdd){
