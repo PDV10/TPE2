@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2021 a las 23:12:45
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Tiempo de generación: 25-11-2021 a las 01:08:51
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -93,7 +93,7 @@ CREATE TABLE `musica` (
 --
 
 INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, `favorito`, `imagen`, `cancion`, `id_genero_fk`) VALUES
-(10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 0, 'img/NuncaQuise.jpg', 'music/audio.mp3', 3),
+(10, 'Nunca quise', 'Intoxicados', 'OTRO DIA EN EL PLANETA TIERRA', '2008-02-13', 0, 'img/NuncaQuise.jpg', '1c36WTqJNiOgXHTSqEckuLmpnmhrqbANM', 3),
 (11, 'Fresco', 'WOS', 'Carabana', '2019-10-04', 0, 'img/fresco.jpg', 'music/audio2.mp3', 6),
 (12, 'Llenos de magia', 'La Vela Puerca', 'A contra luz', '2016-07-08', 0, 'img/llenosDeMagia.jpg', 'music/llenosDeMagia.mp3', 3),
 (13, 'Viejo Karma!', 'Las Pastillas Del Abuelo', 'Desafios', '2017-11-12', 0, 'img/ViejoKarma.jpg', 'music/viejoKarma.mp3', 3),
@@ -121,7 +121,7 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 (38, 'Tiempo', 'Rabeat & Underdann', 'Tiempo', '2016-10-13', 0, 'img/Rabeat.jpg', 'music/', 4),
 (39, 'Un Nuevo Día', 'Zona Ganjah', 'Poder', '2010-06-10', 0, 'img/ZonaGanjah.jpg', 'music/', 4),
 (40, 'Lose Yourself', 'Eminem', 'Lose Yourself', '2002-06-22', 0, 'img/eminem.jpg', 'music/loseYourself.mp3', 6),
-(41, 'Rap God', 'Eminem', 'Sencillo', '2013-10-13', 0, 'img/eminem.jpg', 'music/rapGod.mp3', 6),
+(41, 'Rap God', 'Eminem', 'Sencillo', '2013-10-13', 0, 'img/eminem.jpg', '1DfSPlh7assLFojwydiOnl7vKQRIGM3rZ', 6),
 (42, 'In Da Club', '50 Cent', 'In Da Club', '2009-06-09', 0, 'img/50Cent.jpg', 'music/inDaClub.mp3', 6),
 (43, 'Candy Shop', '50 Cent', 'Candy Shop', '2009-06-16', 0, 'img/50Cent.jpg', 'music/candyShop.mp3', 6),
 (44, 'goosebumps', 'Travis Scott', 'Birds in the Trap Sing McKnight', '2017-04-14', 0, 'img/TravisScott.jpg', 'music/goosebumps.mp3', 6),
@@ -129,7 +129,7 @@ INSERT INTO `musica` (`id_musica`, `nombreCancion`, `artista`, `album`, `anio`, 
 (46, 'En Boca De Tantos', 'Porta', 'En Boca De Tantos', '2009-06-26', 0, 'img/porta.jpg', 'music/enBocaDeTantos.mp3', 6),
 (50, 'La Marca de La Gorra', 'Mala Fama', 'La Tonga', '2017-12-19', 0, 'img/619dc90539979.jpg', 'music/LaMarcadeLaGorra.mp3', 1),
 (51, 'La Mas Linda Del Salon', 'Los Nota Lokos', 'Los Nota Lokos', '2012-09-30', 0, 'img/losNotaLokos.jpg', 'music/laMasLindaDelSalon.mp3', 1),
-(52, 'Re Loco ', 'De La Calle', 'Mas Negro Que La Noche', '2016-07-26', NULL, 'img/deLaCalle.jpg', 'music/reLoco.mp3', 1),
+(52, 'Re Loco ', 'De La Calle', 'Mas Negro Que La Noche', '2016-07-26', NULL, 'img/deLaCalle.jpg', '1H367UvZai_1knot0PsP9tr-XQhJD3XZy', 1),
 (53, 'De Regreso al Penal ', 'Pala Ancha', 'Cumbia Callejera', '2001-07-19', NULL, 'img/PalaAncha.jpg', 'music/deRegresoAlPenal.mp3', 1),
 (54, 'solo quiero amarte ', 'La Champion Liga', ' Confía en Mí', '2010-07-24', NULL, 'img/LaChampionLiga.jpg', 'music/soloQuieroAmarte.mp3', 1),
 (55, 'Mujer Yo te amo', 'Mc Caco', 'Mc Caco', '2010-06-25', NULL, 'img/mcCaco.jpg', 'music/yoTeAmo.mp3', 1),

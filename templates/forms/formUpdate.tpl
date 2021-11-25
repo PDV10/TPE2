@@ -23,6 +23,11 @@
                     <label class="form-label">imagen de la cancion</label>
                     <input type="file" name="input_name" class="form-control formulario" value="{$imagen}">
                 </div>
+                <div class="pt-3 w-5">
+                    <label class="form-label">url de cancion</label>
+                    <input type="text" name="url_cancion" class="form-control formulario">
+                </div>
+
             </div>
             <div class="mb-3">
                 <label class="form-label">Genero de la cancion</label>

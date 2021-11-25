@@ -84,14 +84,15 @@
                     isset($_REQUEST['album']) && !empty($_REQUEST['album'])    && 
                     isset($_REQUEST['anio']) && !empty($_REQUEST['anio'])      && 
                     isset($_REQUEST['genre']) && $_REQUEST['genre']!="false"   && 
-                    isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
-                      
+                    isset($_REQUEST['id']) && !empty($_REQUEST['id'])          &&
+                    isset($_REQUEST['url_cancion']) && !empty($_REQUEST['url_cancion'])) {
                         $nombre = $_REQUEST['nombre'];
                         $artista = $_REQUEST['artista'];
                         $album = $_REQUEST['album'];
                         $anio = $_REQUEST['anio'];
                         $genre = $_REQUEST['genre'];
                         $id = $_REQUEST['id'];
+                        $url_cancion = $_REQUEST['url_cancion'];
 
                         if ($_FILES['input_name']['type'] == "image/jpg"  || 
                             $_FILES['input_name']['type'] == "image/jpeg" || 
@@ -101,7 +102,7 @@
                         }
 
                         if($genre != "false"){
-                            $this->musicModel->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id); 
+                            $this->musicModel->updateMusic($nombre,$artista,$album,$anio,$genre,$imagen,$id,$url_cancion); 
                             header("Location:". TABLA .$genre);
                         }
                 }else{

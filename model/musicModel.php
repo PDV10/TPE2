@@ -65,7 +65,7 @@
             return $query->fetch(PDO::FETCH_OBJ);
         }
 
-        function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen = null,$id){
+        function updateMusic($nombre,$artista,$album,$anio,$genre,$imagen = null,$id,$url_cancion){
             $pathImg = null;
 
             if($imagen){
@@ -76,9 +76,9 @@
             'UPDATE musica m
             INNER JOIN generos g 
             ON m.id_genero_fk = g.id
-            SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ?, imagen = ? 
+            SET nombreCancion = ?, artista = ?, album = ?, anio = ?, id_genero_fk = ?, imagen = ? ,cancion = ?
             WHERE m.id_musica = ?');
-            $query->execute([$nombre,$artista,$album,$anio,$genre,$pathImg,$id]);
+            $query->execute([$nombre,$artista,$album,$anio,$genre,$pathImg,$id,$url_cancion]);
         }
 
         function filtrarAll($filtrado){
