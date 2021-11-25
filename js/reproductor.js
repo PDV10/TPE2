@@ -22,6 +22,8 @@ botones_pause.forEach(btn => {
 
 function reproducir(id){
 
+    
+
     botones_play.forEach(btn => {
         if (btn.dataset.id == id) {
             btn.classList.add('botones_no');
@@ -37,9 +39,21 @@ function reproducir(id){
 
     let audio = document.querySelector('#play'+id);
     audio.play();
+
+    let volumen= document.getElementById('volumen');
+    volumen.addEventListener('mousemove',()=>{
+        audio.volume = volumen.value / 100;
+    });
+
+    
+    
+
 }
 
 
+// function setVolumen(audio,volumen){
+//     audio.volume = volumen.value / 100;
+//     }
 
 function pausar(id){
 
@@ -58,3 +72,10 @@ function pausar(id){
     let audio = document.querySelector('#play'+id);
     audio.pause();
 }
+
+let audios = document.querySelectorAll('.audios');
+
+
+
+
+
