@@ -6,7 +6,7 @@
         <table class="table table-dark table-striped text-center">
             <thead class="position-sticky top-0">
                 <tr>   
-                    <th>-<input type="range" id="volumen" max="100" min="0" step="1">+</th>
+                    <th class="d-flex align-items-center justify-content-center" > - <input type="range" class="mt-1" id="volumen" max="100" min="0" step="1"> + </th>
                     <th>nombre</th>
                     <th>artista</th>
                     <th>album</th>
