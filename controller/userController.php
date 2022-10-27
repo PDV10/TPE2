@@ -42,17 +42,17 @@
                 $password = $_POST['password'];
 
                 $passwordEncripted = password_hash($password,PASSWORD_BCRYPT);
-                // Consulto si el usuario existe      ¯\_( ͡ಠ - ͡ಠ)_/¯
+                // Consulto si el usuario existe      
                 $loged = $this->userModel->getUser($user);
                 if (!empty($loged)) {
                     $this->view->showError("Éste usuario ya está registrado!!!");
                 }else{
-                // Registro al usuario                  \( ͡ಠ ͜ʖ ͡ಠ)/
+                // Registro al usuario                 
                   $this->userModel->register($user,$passwordEncripted);
                   $loged = $this->userModel->getUser($user);
 
                   if ($loged) {
-                    // Genero la session al usuario         \( ͡ᵔ ͜ʖ ͡ᵔ)/
+                    // Genero la session al usuario        
                     $this->authHelper->login($loged);
                     header("Location: " . BASE_URL);
                   }

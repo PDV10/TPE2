@@ -23,10 +23,12 @@
                         <a href="AdministrarGeneros" class="btn btn-secondary">Administrar Generos</a>
                         <a href="showUsers" class="btn btn-secondary">Administrar usuarios</a>
                     {/if}
+                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#contactoModal" data-bs-whatever="@getbootstrap">contactanos</button>
                     <a class="btn btn-danger" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
                     
                 </div>
             {else}
+                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#contactoModal" data-bs-whatever="@getbootstrap">contactanos</button>
                 <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@getbootstrap">register</button>
                 <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">login</button>
             {/if}
@@ -35,3 +37,4 @@
 
 {include file="templates/modals/showModalLogin.tpl"}
 {include file="templates/modals/showModalRegister.tpl"}
+{include file="templates/modals/showModalContacto.tpl"}
